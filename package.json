@@ -1,0 +1,34 @@
+{
+  "name": "fable-date-functions",
+  "version": "1.0.0",
+  "description": "Binding for date-fns library",
+  "scripts": {
+    "build": "webpack -p",
+    "start": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "date-fns": "^1.28.2",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-highlight": "^0.12.0",
+    "remotedev": "^0.2.7"
+  },
+  "devDependencies": {
+    "babel-core": "6.25.0",
+    "babel-loader": "7.1.1",
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.11",
+    "fable-loader": "1.0.6",
+    "fable-utils": "^1.0.6",
+    "loglevel": "^1.6.0",
+    "style-loader": "^0.20.3",
+    "webpack": "3.3.0",
+    "webpack-dev-server": "^2.9.7"
+  }
+}
