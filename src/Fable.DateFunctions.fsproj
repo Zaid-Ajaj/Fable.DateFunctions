@@ -13,6 +13,7 @@
     <Compile Include="HourHelpers.fs" />
     <Compile Include="DayHelpers.fs" />
     <Compile Include="WeekdayHelpers.fs" />
+    <Compile Include="WeekHelpers.fs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="*.fsproj; *.fs; *.js" PackagePath="fable\" />

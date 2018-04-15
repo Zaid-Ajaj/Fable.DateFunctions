@@ -132,4 +132,12 @@ module internal ExternalDateFns =
     let isTuesday a = importDefault "date-fns/is_tuesday"
     let isWednesday a = importDefault "date-fns/is_wednesday"
     let isWeekend a = importDefault "date-fns/is_weekend"
-    
+    let addWeeks x y = importDefault "date-fns/add_weeks"
+    let differenceInCalendarWeeks x y = importDefault "date-fns/difference_in_calendar_weeks"
+    let differenceInWeeks x y = importDefault "date-fns/difference_in_weeks"
+    let endOfWeek x = importDefault "date-fns/end_of_week"
+    let isSameWeek x y = importDefault "date-fns/is_same_week"
+    let isThisWeek x = importDefault "date-fns/is_this_week"
+    let lastDayOfWeek x = importDefault "date-fns/last_day_of_week"
+    let startOfWeek x = importDefault "date-fns/start_of_week"
+    let subWeeks x y = importDefault "date-fns/sub_weeks"
