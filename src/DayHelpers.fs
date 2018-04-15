@@ -12,7 +12,7 @@ module DayHelpers =
         /// Get the number of full days between the given dates.
         member dateLeft.DifferenceInDays(dateRight: DateTime) : int = ExternalDateFns.differenceInDays dateLeft dateRight
         /// Return the array of dates within the specified range.
-        member start.EachDay(endDate: DateTime) : DateTime[] = ExternalDateFns.eachDay start endDate
+        static member DatesBetween(startDate : DateTime, endDate: DateTime) : DateTime[] = ExternalDateFns.eachDay startDate endDate
         /// Return the end of a day for the given date. The result will be in the local timezone.
         member date.EndOfDay() : DateTime = ExternalDateFns.endOfDay date
         static member EndOfToday() : DateTime = ExternalDateFns.endOfToday()
