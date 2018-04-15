@@ -43,10 +43,6 @@ type ParseOpts =
     /// the additional number of digits in the extended year format.
     abstract additionalDigits : int with get, set
 
-
-[<AbstractClass; Sealed>]
-type DateFns private() = class end 
-
 module internal ExternalDateFns = 
     let closestIndexTo (d: obj) (other: obj) = importDefault "date-fns/closest_index_to"
     let closestTo (date: obj) (other : obj) = importDefault "date-fns/closest_to"

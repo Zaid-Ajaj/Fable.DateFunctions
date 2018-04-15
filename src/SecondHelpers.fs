@@ -4,7 +4,7 @@ open System
 
 [<AutoOpen>]
 module SecondHelpers = 
-    type DateFns with
+    type DateTime with
         /// Add the specified number of seconds to the given date and returns a new date.
         member date.AddSeconds(amount: int) : DateTime = ExternalDateFns.addSeconds date amount
         /// Returns the number of seconds between the given dates.
