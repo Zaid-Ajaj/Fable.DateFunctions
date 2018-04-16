@@ -15,6 +15,7 @@
     <Compile Include="WeekdayHelpers.fs" />
     <Compile Include="WeekHelpers.fs" />
     <Compile Include="IsoWeeksHelper.fs" />
+    <Compile Include="MonthHelpers.fs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="*.fsproj; *.fs; *.js" PackagePath="fable\" />

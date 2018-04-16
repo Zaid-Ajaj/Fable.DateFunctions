@@ -17,6 +17,20 @@ type TimeUnit =
     | [<CompiledName("M")>] Month 
     | [<CompiledName("Y")>] Year
 
+type Months = 
+    | January = 0
+    | Februari = 1
+    | March = 2
+    | April = 3
+    | May = 4
+    | June = 5 
+    | July = 6
+    | August = 7
+    | September = 8
+    | October = 9
+    | November = 10
+    | December = 11
+
 type DistanceInWordsOpts = 
     /// distances less than a minute are more detailed
     abstract includeSeconds : bool with get, set
@@ -149,3 +163,16 @@ module internal ExternalDateFns =
     let lastDayOfIsoWeek x = importDefault "date-fns/last_day_of_iso_week"
     let startOfIsoWeek x = importDefault "date-fns/start_of_iso_week"
     let setIsoWeek x y = importDefault "date-fns/set_iso_week"
+    let addMonths x y = importDefault "date-fns/add_months"
+    let differenceInCalendarMonths x y = importDefault "date-fns/difference_in_calendar_months"
+    let differenceInMonths x y = importDefault "date-fns/difference_in_months"
+    let endOfMonth x = importDefault "date-fns/end_of_month"
+    let getDaysInMonth x = importDefault "date-fns/get_days_in_month"
+    let getMonth x = importDefault "date-fns/get_month"
+    let isFirstDayOfMonth x = importDefault "date-fns/is_first_day_of_month"
+    let isLastDayOfMonth x = importDefault "date-fns/is_last_day_of_month"
+    let isSameMonth x y = importDefault "date-fns/is_same_month"
+    let isThisMonth x = importDefault "date-fns/is_this_month"
+    let setMonth x y = importDefault "date-fns/set_month"
+    let startOfMonth x = importDefault "date-fns/start_of_month"
+    let subMonths x y = importDefault "date-fns/sub_months"
