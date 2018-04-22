@@ -3,7 +3,7 @@ namespace Fable.DateFunctions
 open System
 
 [<AutoOpen>]
-module TimestampHelpers = 
-    type DateTime with 
+module TimestampHelpers =
+    type DateTime with
         /// Returns the milliseconds timestamp of the given date.
-        member date.GetMilliseconds() : int = ExternalDateFns.getTime date
+        member inline date.GetMilliseconds() : int = ExternalDateFns.getTime date
