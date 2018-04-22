@@ -16,7 +16,7 @@ Now from your F# code
 open Fable.DateFunctions 
 
 let now = DateTime.Now
-now.SubtractDays(-1).IsInThePast() // true
+now.SubtractDays(1).IsInThePast() // true
 ```
 
 ## Todo (PRs are welcome)
