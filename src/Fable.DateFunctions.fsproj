@@ -1,5 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <Description>Fable binding for date-fns, implemented as extension methods for DateTime</Description>
+    <PackageProjectUrl>https://github.com/Zaid-Ajaj/Fable.DateFunctions/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Zaid-Ajaj/Fable.DateFunctions.git</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/Zaid-Ajaj/Fable.DateFunctions/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageIconUrl></PackageIconUrl>
+    <PackageTags>fsharp;fable;date;dates;datetime;date-fns</PackageTags>
+    <Authors>Zaid Ajaj</Authors>
+    <Version>0.1.0</Version>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
