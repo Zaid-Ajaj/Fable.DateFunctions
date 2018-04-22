@@ -31,7 +31,7 @@ type Months =
     | November = 10
     | December = 11
 
-type DistanceInWordsOpts = 
+type IDistanceInWordsOptions = 
     /// distances less than a minute are more detailed
     abstract includeSeconds : bool with get, set
     /// result indicates if the second date is earlier or later than the first
@@ -39,7 +39,7 @@ type DistanceInWordsOpts =
     /// the locale object
     abstract locale : ILocale with get, set
 
-type DistanceInWordsStrictOpts = 
+type IDistanceInWordsStrictOptions = 
     /// Result indicates if the second date is earlier or later than the first
     abstract addSuffix : bool with get, set
     /// if specified, will force a unit
@@ -49,7 +49,7 @@ type DistanceInWordsStrictOpts =
     /// the locale object
     abstract locale : ILocale with get, set
 
-type FormatOpts = 
+type IDateFormatOptions = 
     /// the locale object
     abstract locale : ILocale with get, set
 

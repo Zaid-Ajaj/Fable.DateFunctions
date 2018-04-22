@@ -31,6 +31,23 @@ Target "DotnetRestore" <| fun _ ->
     projects
     |> List.iter (run dotnet "restore --no-cache")
 
+let clean projectPath =
+    [ projectPath </> "bin"
+      projectPath </> "obj" ] |> CleanDirs
+
+let publish projectPath = fun () ->
+    clean projectPath
+    "pack -c Release"
+    |> run projectPath dotnet
+    let nugetKey =
+        match environVarOrNone "NUGET_KEY" with
+        | Some nugetKey -> nugetKey
+        | None -> failwith "The Nuget API key must be set in a NUGET_KEY environmental variable"
+    let nupkg = System.IO.Directory.GetFiles(projectPath </> "bin" </> "Release") |> Seq.head
+    let pushCmd = sprintf "nuget push %s -s nuget.org -k %s" nupkg nugetKey
+    run projectPath dotnet pushCmd
+
+Target "PublishNuget" (publish "src")
 
 Target "NpmInstall" <| fun _ ->
     run npm "install" "."
@@ -41,6 +58,6 @@ Target "Watch" <| fun () ->
 "Clean" 
   ==> "NpmInstall"
   ==> "DotnetRestore"
-  ==> "Watch"
+  ==> "Watch"  
 
 RunTargetOrDefault "Clean"

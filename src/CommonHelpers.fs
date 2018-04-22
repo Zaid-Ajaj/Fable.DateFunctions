@@ -21,18 +21,22 @@ module CommonHelpers =
         /// Return the distance between the given dates in words.
         member date.DistanceInWords(other: DateTime) : string = ExternalDateFns.distanceInWords date other (obj())
         /// Return the distance between the given dates in words with given options
-        member date.DistanceInWords(other : DateTime, opts: DistanceInWordsOpts) : string = ExternalDateFns.distanceInWords date other opts
+        member date.DistanceInWords(other : DateTime, opts: IDistanceInWordsOptions) : string = ExternalDateFns.distanceInWords date other opts
         /// Return the distance between the given dates in words, using strict units. This is like distanceInWords, but does not use helpers like 'almost', 'over', 'less than' and the like.
-        member date.DistanceInWordsStrict(other: DateTime, opts: DistanceInWordsStrictOpts) : string = ExternalDateFns.dictanceInWordsStrict date other opts
+        member date.DistanceInWordsStrict(other: DateTime, opts: IDistanceInWordsStrictOptions) : string = ExternalDateFns.dictanceInWordsStrict date other opts
         /// Returns the distance between the given date and now in words.
-        member otherDate.DistanceInWordsToNow(opts: DistanceInWordsOpts) : string = ExternalDateFns.distanceInWordsToNow otherDate opts
+        member otherDate.DistanceInWordsToNow(opts: IDistanceInWordsOptions) : string = ExternalDateFns.distanceInWordsToNow otherDate opts
         /// Returns the formatted date string in the given default format:
         /// YYYY-MM-DDTHH:mm:ss.SSSZ.
         member date.Format() : string = ExternalDateFns.format date
-        /// Return the formatted date string in the given format.
+        /// Return the formatted date string in the given format. See https://date-fns.org/v1.29.0/docs/format for docs
         member date.Format(format: string) : string = ExternalDateFns.formatWithStr date format
-        /// Return the formatted date string in the given format and locale.
-        member date.Format(format: string, opts: FormatOpts) : string = ExternalDateFns.formatWithStrAndOptions date format opts
+        /// Return the formatted date string in the given format and locale. See https://date-fns.org/v1.29.0/docs/format for docs
+        member date.Format(format: string, locale: ILocale) : string =
+            let formatOptions = createEmpty<IDateFormatOptions> 
+            formatOptions.locale <- locale  
+            ExternalDateFns.formatWithStrAndOptions date format formatOptions
+
         /// Returns whether the first date is after the second one.
         member fstDate.IsAfter(sndDate: DateTime) : bool = ExternalDateFns.isAfter fstDate sndDate
         /// Returns whether the second date is before the first one.

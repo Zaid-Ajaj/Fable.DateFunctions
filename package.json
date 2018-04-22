@@ -1,11 +1,15 @@
 {
   "name": "fable-date-functions",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/Zaid-Ajaj/Fable.DateFunctions.git"
+  },
   "description": "Binding for date-fns library",
   "scripts": {
     "build": "webpack -p",
     "start": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish": "node publish.js"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +30,7 @@
     "css-loader": "^0.28.11",
     "fable-loader": "1.0.6",
     "fable-utils": "^1.0.6",
+    "gh-pages": "^1.1.0",
     "loglevel": "^1.6.0",
     "style-loader": "^0.20.3",
     "webpack": "3.3.0",
