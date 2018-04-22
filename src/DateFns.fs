@@ -9,21 +9,21 @@ type ILocale = interface end
 type ParialMethod = Floor | Ceiling | Round
 
 [<StringEnum>]
-type TimeUnit = 
-    | [<CompiledName("s")>] Second 
-    | [<CompiledName("m")>] Minute 
-    | [<CompiledName("h")>] Hour 
-    | [<CompiledName("d")>] Day 
-    | [<CompiledName("M")>] Month 
+type TimeUnit =
+    | [<CompiledName("s")>] Second
+    | [<CompiledName("m")>] Minute
+    | [<CompiledName("h")>] Hour
+    | [<CompiledName("d")>] Day
+    | [<CompiledName("M")>] Month
     | [<CompiledName("Y")>] Year
 
-type Months = 
+type Months =
     | January = 0
     | Februari = 1
     | March = 2
     | April = 3
     | May = 4
-    | June = 5 
+    | June = 5
     | July = 6
     | August = 7
     | September = 8
@@ -31,7 +31,7 @@ type Months =
     | November = 10
     | December = 11
 
-type IDistanceInWordsOptions = 
+type IDistanceInWordsOptions =
     /// distances less than a minute are more detailed
     abstract includeSeconds : bool with get, set
     /// result indicates if the second date is earlier or later than the first
@@ -39,7 +39,7 @@ type IDistanceInWordsOptions =
     /// the locale object
     abstract locale : ILocale with get, set
 
-type IDistanceInWordsStrictOptions = 
+type IDistanceInWordsStrictOptions =
     /// Result indicates if the second date is earlier or later than the first
     abstract addSuffix : bool with get, set
     /// if specified, will force a unit
@@ -49,15 +49,15 @@ type IDistanceInWordsStrictOptions =
     /// the locale object
     abstract locale : ILocale with get, set
 
-type IDateFormatOptions = 
+type IDateFormatOptions =
     /// the locale object
     abstract locale : ILocale with get, set
 
-type ParseOpts = 
+type ParseOpts =
     /// the additional number of digits in the extended year format.
     abstract additionalDigits : int with get, set
 
-module internal ExternalDateFns = 
+module ExternalDateFns =
     let closestIndexTo (d: obj) (other: obj) = importDefault "date-fns/closest_index_to"
     let closestTo (date: obj) (other : obj) = importDefault "date-fns/closest_to"
     let compareAsc (date: obj) (other: obj) = importDefault "date-fns/compare_asc"
