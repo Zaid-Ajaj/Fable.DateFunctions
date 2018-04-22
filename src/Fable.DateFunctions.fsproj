@@ -16,6 +16,8 @@
     <Compile Include="WeekHelpers.fs" />
     <Compile Include="IsoWeeksHelper.fs" />
     <Compile Include="MonthHelpers.fs" />
+    <Compile Include="YearHelpers.fs" />
+    <Compile Include="Locales.fs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="*.fsproj; *.fs; *.js" PackagePath="fable\" />
