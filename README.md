@@ -1,6 +1,6 @@
 # Fable.DateFunctions 
 
-Fable binding for popular [date-fns](https://date-fns.org/), a library for date manipulation. This binding implements the imports as 120+ extension methods for `DateTime` instances (and a couple of static members for `DateTime`). 32 Languages are supported for formatting dates.
+Fable binding for popular [date-fns](https://date-fns.org/), a library for date manipulation. This binding implements the imports as 120+ extension methods for `DateTime` instances (and a couple of static members for `DateTime`). 32 Languages are supported for formatting dates, see [live demo](https://zaid-ajaj.github.io/Fable.DateFunctions/).
 
 ## Installation 
 Install the binding from Nuget
@@ -24,7 +24,7 @@ now.SubtractDays(-1).IsInThePast() // true
  - ISO Week-Numbering Year Helpers
  - More docs
  - Better tree-shaking (lazy imports, i.e. only import what you use)
- 
+
 ## Build and running the app
 
 1. Start Fable server and Webpack dev server: `./build.sh Watch`
