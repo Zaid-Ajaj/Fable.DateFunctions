@@ -6,7 +6,7 @@ open Fable.Core
 type ILocale = interface end
 
 [<StringEnum>]
-type ParialMethod = Floor | Ceiling | Round
+type PartialMethod = Floor | Ceiling | Round
 
 [<StringEnum>]
 type TimeUnit =
@@ -45,7 +45,7 @@ type IDistanceInWordsStrictOptions =
     /// if specified, will force a unit
     abstract unit : TimeUnit with get, set
     /// which way to round partial units
-    abstract partialMethod : ParialMethod with get, set
+    abstract partialMethod : PartialMethod with get, set
     /// the locale object
     abstract locale : ILocale with get, set
 
