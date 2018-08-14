@@ -38,7 +38,8 @@ let publish projectPath = fun () ->
         | Some nugetKey -> nugetKey
         | None -> failwith "The Nuget API key must be set in a NUGET_KEY environmental variable"
     let nupkg = System.IO.Directory.GetFiles(projectPath </> "bin" </> "Release") |> Seq.head
-    let pushCmd = sprintf "nuget push %s -s nuget.org -k %s" nupkg nugetKey
+    tracefn "Found nuget %s" (System.IO.Path.GetFullPath(nupkg))
+    let pushCmd = sprintf "nuget push %s -s nuget.org -k %s" (System.IO.Path.GetFullPath(nupkg)) nugetKey
     run dotnet pushCmd projectPath
 
 Target "PublishNuget" (publish "src")
