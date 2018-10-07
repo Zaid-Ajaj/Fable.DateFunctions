@@ -50,13 +50,21 @@ Target "NpmInstall" <| fun _ ->
 Target "Watch" <| fun () ->
   run dotnet "fable npm-run start" "app"
 
+Target "Build" <| fun () -> 
+  run dotnet "fable npm-run build" "app"
+
 "Clean" 
   ==> "DotnetRestore"
   ==> "NpmInstall"
   ==> "Watch"  
 
+"Clean"
+  ==> "DotnetRestore"
+  ==> "NpmInstall"
+  ==> "Build"
+
 "Clean" 
   ==> "DotnetRestore"
   ==> "PublishNuget"
 
-RunTargetOrDefault "Clean"
+RunTargetOrDefault "Build"

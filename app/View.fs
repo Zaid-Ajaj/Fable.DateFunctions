@@ -3,10 +3,6 @@ module App.View
 open App.Types
 
 open System
-open Fulma
-open Fulma.Elements
-open Fulma.Components
-open Fulma.Layouts
 open Fable.Helpers.React
 open Fable.Helpers.React.Props
 open Fable.DateFunctions
@@ -48,7 +44,7 @@ let tomorrow = now.AddDays(1)"""
           Common.highlight (sprintf "now.SubtractDays(1).IsInThePast()  ==> %A" (now.SubtractDays(1).IsInThePast()))
           h1 [ Style [ FontSize 30 ] ] [ str "Locales Support (32 languages)" ]
           p [ ] [ span [ ] [ str "See "; a [ Href "https://date-fns.org/v1.29.0/docs/format" ] [ str "https://date-fns.org/v1.29.0/docs/format" ]; str " for the full documentation on formatting strings" ]  ]
-          Common.highlight (sprintf "now.Format(\"Do MMMM YYYY\", DateTime.Locales.Russian) ==> %A" (now.Format("Do MMMM YYYY", DateTime.Locales.Dutch)))
+          Common.highlight (sprintf "now.Format(\"Do MMMM YYYY\", DateTime.Locales.Czech) ==> %A" (now.Format("Do MMMM YYYY", DateTime.Locales.Czech)))
           Common.highlight (sprintf "now.Format(\"Do MMMM YYYY\", DateTime.Locales.Spanish) ==> %A" (now.Format("Do MMMM YYYY", DateTime.Locales.Spanish)))
           Common.highlight (sprintf "now.Format(\"Do MMMM YYYY\", DateTime.Locales.French) ==> %A" (now.Format("Do MMMM YYYY", DateTime.Locales.French)))
           Common.highlight (sprintf "now.Format(\"Do MMMM YYYY\", DateTime.Locales.Japanese) ==> %A" (now.Format("Do MMMM YYYY", DateTime.Locales.Japanese)))
