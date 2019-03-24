@@ -3,11 +3,11 @@ module App.View
 open App.Types
 
 open System
-open Fable.Helpers.React
-open Fable.Helpers.React.Props
+open Fable.React
+open Fable.React.Props
 open Fable.DateFunctions
-open Fable.Core
 open Fable.Core.JsInterop
+
 let now = DateTime.Now
 let tomorrow = now.AddDays(1)
 let yesterday = now.SubtractDays(1)

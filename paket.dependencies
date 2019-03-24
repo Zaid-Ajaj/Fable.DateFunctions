@@ -5,12 +5,10 @@ storage:none
 nuget Elmish.Toastr
 
 nuget FSharp.Core
-nuget Fable.Core
-nuget Fable.Elmish.React
-nuget Fable.Elmish.Browser
-nuget Fable.Elmish.HMR
-nuget Fable.Elmish.Debugger
-clitool dotnet-fable
+nuget Fable.Core 3.0.0-beta-005
+nuget Fable.Elmish.React 3.0.0-beta-4
+nuget Fable.Elmish.HMR 4.0.0-beta-5	
+nuget Fable.Elmish.Debugger 3.0.0-beta-3
 
 group Build
     framework >= net45

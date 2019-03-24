@@ -48,10 +48,10 @@ Target "NpmInstall" <| fun _ ->
     run npm "install" "."
 
 Target "Watch" <| fun () ->
-  run dotnet "fable npm-run start" "app"
+  run npm "start" "."
 
 Target "Build" <| fun () -> 
-  run dotnet "fable npm-run build" "app"
+  run npm "run build" "."
 
 "Clean" 
   ==> "DotnetRestore"

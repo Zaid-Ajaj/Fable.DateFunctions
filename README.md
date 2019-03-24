@@ -7,7 +7,7 @@ Install the binding from Nuget
 ```
 paket add Fable.DateFunctions --project path/to/Proj.fsproj
 ```
-Install the actual Javascript library from npm
+Install the actual Javascript library `date-fns` (version 1.28+) from npm
 ```
 npm install --save date-fns
 ```
@@ -32,5 +32,3 @@ now.SubtractDays(1).IsInThePast() // true
 
 Any modification you do to the F# code will be reflected in the web page after
 saving.
-
-

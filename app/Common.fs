@@ -1,7 +1,7 @@
 module Common
 
-open Fable.Helpers.React
-open Fable.Helpers.React.Props
+open Fable.React
+open Fable.React.Props
 open Fable.Core.JsInterop
 open Fable.Core
 
@@ -12,7 +12,5 @@ let classes args  =
     |> String.concat " "
     |> ClassName
 
-let highlight (code: string) = 
-    ofImport "default" "react-highlight" 
-             (createObj [ "className" ==> "fsharp"]) 
-             [ str code ]
+let highlight (codeBlock: string) = 
+    pre [ ] [ code [ ] [ str codeBlock ] ]

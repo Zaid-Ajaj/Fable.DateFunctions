@@ -15,6 +15,5 @@ importAll "highlight.js/styles/ocean.css"
 Program.mkProgram init update render
 |> Program.withConsoleTrace
 |> Program.withDebugger
-|> Program.withHMR
-|> Program.withReact "elmish-app"
+|> Program.withReactSynchronous "elmish-app"
 |> Program.run

@@ -8,32 +8,30 @@
   "scripts": {
     "build": "webpack -p",
     "start": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "publish": "node publish.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "babel-runtime": "^6.23.0",
     "date-fns": "^1.28.2",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "react-highlight": "^0.12.0",
-    "remotedev": "^0.2.7"
+    "remotedev": "^0.2.9",
+    "webpack-cli": "^3.3.0"
   },
   "devDependencies": {
-    "babel-core": "6.25.0",
-    "babel-loader": "7.1.1",
-    "babel-plugin-transform-runtime": "6.23.0",
-    "babel-preset-env": "^1.6.1",
+    "@babel/core": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.0",
+    "fable-compiler": "^2.2.0-beta-019",
+    "fable-loader": "^2.1.5",
     "css-loader": "^0.28.11",
-    "fable-loader": "1.0.6",
-    "fable-utils": "^1.0.6",
     "gh-pages": "^1.1.0",
     "loglevel": "^1.6.0",
     "style-loader": "^0.20.3",
-    "webpack": "3.3.0",
-    "webpack-dev-server": "^2.9.7"
+    "webpack": "^4.29.6",
+    "webpack-dev-server": "^3.2.1"
   }
 }
