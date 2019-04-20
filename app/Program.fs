@@ -9,6 +9,5 @@ open App.View
            
 Program.mkProgram init update render
 |> Program.withConsoleTrace
-|> Program.withDebugger
 |> Program.withReactSynchronous "elmish-app"
 |> Program.run

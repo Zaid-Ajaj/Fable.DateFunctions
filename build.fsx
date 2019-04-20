@@ -44,8 +44,8 @@ let publish projectPath = fun () ->
 
 Target "PublishNuget" (publish "src")
 
-Target "NpmInstall" <| fun _ ->
-    run npm "install" "."
+Target "YarnInstall" <| fun _ ->
+    run "yarn" "install" "."
 
 Target "Watch" <| fun () ->
   run npm "start" "."
@@ -55,12 +55,12 @@ Target "Build" <| fun () ->
 
 "Clean" 
   ==> "DotnetRestore"
-  ==> "NpmInstall"
+  ==> "YarnInstall"
   ==> "Watch"  
 
 "Clean"
   ==> "DotnetRestore"
-  ==> "NpmInstall"
+  ==> "YarnInstall"
   ==> "Build"
 
 "Clean" 
