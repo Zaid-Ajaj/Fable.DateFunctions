@@ -7,9 +7,9 @@ Install the binding from Nuget
 ```
 paket add Fable.DateFunctions --project path/to/Proj.fsproj
 ```
-Install the actual Javascript library `date-fns` (version 1.28+) from npm
+Install the actual Javascript library `date-fns` from npm
 ```
-npm install --save date-fns
+npm install date-fns@1.30.1
 ```
 Now from your F# code
 ```fs

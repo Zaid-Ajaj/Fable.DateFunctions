@@ -7,13 +7,13 @@
     <PackageIconUrl></PackageIconUrl>
     <PackageTags>fsharp;fable;date;dates;datetime;date-fns</PackageTags>
     <Authors>Zaid Ajaj</Authors>
-    <Version>2.2.0</Version>
+    <Version>2.3.0</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
     <NpmDependencies>
-      <NpmPackage Name="date-fns" Version=">= 1.30.0" ResolutionStrategy="Min" />
+      <NpmPackage Name="date-fns" Version=">= 1.30 lt 2.0" ResolutionStrategy="Min" />
     </NpmDependencies>
   </PropertyGroup>
   <ItemGroup>
