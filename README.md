@@ -20,7 +20,6 @@ now.SubtractDays(1).IsInThePast() // true
 ```
 
 ## Todo (PRs are welcome)
- - Quarter helpers
  - ISO Week-Numbering Year Helpers
  - More docs
  - Better tree-shaking (lazy imports, i.e. only import what you use)
