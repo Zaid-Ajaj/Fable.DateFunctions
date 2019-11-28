@@ -3,10 +3,15 @@ namespace Fable.DateFunctions
 open Fable.Core.JsInterop
 open Fable.Core
 
-type ILocale = interface end
+type ILocale =
+    interface
+    end
 
 [<StringEnum>]
-type PartialMethod = Floor | Ceiling | Round
+type PartialMethod =
+    | Floor
+    | Ceiling
+    | Round
 
 [<StringEnum>]
 type TimeUnit =
@@ -15,6 +20,7 @@ type TimeUnit =
     | [<CompiledName("h")>] Hour
     | [<CompiledName("d")>] Day
     | [<CompiledName("M")>] Month
+    | [<CompiledName("Q")>] Quarter
     | [<CompiledName("Y")>] Year
 
 type Months =
@@ -33,37 +39,38 @@ type Months =
 
 type IDistanceInWordsOptions =
     /// distances less than a minute are more detailed
-    abstract includeSeconds : bool with get, set
+    abstract includeSeconds: bool with get, set
     /// result indicates if the second date is earlier or later than the first
-    abstract addSuffix : bool with get, set
+    abstract addSuffix: bool with get, set
     /// the locale object
-    abstract locale : ILocale with get, set
+    abstract locale: ILocale with get, set
 
 type IDistanceInWordsStrictOptions =
     /// Result indicates if the second date is earlier or later than the first
-    abstract addSuffix : bool with get, set
+    abstract addSuffix: bool with get, set
     /// if specified, will force a unit
-    abstract unit : TimeUnit with get, set
+    abstract unit: TimeUnit with get, set
     /// which way to round partial units
-    abstract partialMethod : PartialMethod with get, set
+    abstract partialMethod: PartialMethod with get, set
     /// the locale object
-    abstract locale : ILocale with get, set
+    abstract locale: ILocale with get, set
 
 type IDateFormatOptions =
     /// the locale object
-    abstract locale : ILocale with get, set
+    abstract locale: ILocale with get, set
 
 type ParseOpts =
     /// the additional number of digits in the extended year format.
-    abstract additionalDigits : int with get, set
+    abstract additionalDigits: int with get, set
 
 module ExternalDateFns =
     let inline closestIndexTo (d: obj) (other: obj) = importDefault "date-fns/closest_index_to"
-    let inline closestTo (date: obj) (other : obj) = importDefault "date-fns/closest_to"
+    let inline closestTo (date: obj) (other: obj) = importDefault "date-fns/closest_to"
     let inline compareAsc (date: obj) (other: obj) = importDefault "date-fns/compare_asc"
     let inline compareDesc (date: obj) (other: obj) = importDefault "date-fns/compare_desc"
     let inline distanceInWords (date: obj) (other: obj) (options: obj) = importDefault "date-fns/distance_in_words"
-    let inline dictanceInWordsStrict (date: obj) (other: obj) (opts: obj) = importDefault "date-fns/distance_in_words_strict"
+    let inline dictanceInWordsStrict (date: obj) (other: obj) (opts: obj) =
+        importDefault "date-fns/distance_in_words_strict"
     let inline distanceInWordsToNow (date: obj) (opts: obj) = importDefault "date-fns/distance_in_words_to_now"
     let inline format (date: obj) = importDefault "date-fns/format"
     let inline formatWithStr (date: obj) (format: string) = importDefault "date-fns/format"
@@ -79,8 +86,10 @@ module ExternalDateFns =
     let inline min (dates: obj) = importDefault "date-fns/min"
     let inline parse (input: obj) = importDefault "date-fns/parse"
     let inline parseWithOpts (input: obj) (opts: obj) = importDefault "date-fns/parse"
-    let inline areRangesOverlapping (d1: obj) (d2: obj) (d3: obj) (d4: obj) = importDefault "date-fns/are_ranges_overlapping"
-    let inline getOverlappingDaysInRanges (d1: obj) (d2: obj) (d3: obj) (d4: obj) = importDefault "date-fns/get_overlapping_days_in_ranges"
+    let inline areRangesOverlapping (d1: obj) (d2: obj) (d3: obj) (d4: obj) =
+        importDefault "date-fns/are_ranges_overlapping"
+    let inline getOverlappingDaysInRanges (d1: obj) (d2: obj) (d3: obj) (d4: obj) =
+        importDefault "date-fns/get_overlapping_days_in_ranges"
     let inline isWithinRange (d1: obj) (d2: obj) (d3: obj) = importDefault "date-fns/is_within_range"
     let inline getTime (d: obj) = importDefault "date-fns/is_within_range"
     let inline addMilliseconds (d: obj) (a: obj) = importDefault "date-fns/add_milliseconds"
@@ -120,9 +129,9 @@ module ExternalDateFns =
     let inline differenceInDays a b = importDefault "date-fns/difference_in_days"
     let inline eachDay a b = importDefault "date-fns/each_day"
     let inline endOfDay a = importDefault "date-fns/end_of_day"
-    let inline endOfToday : unit -> System.DateTime = importDefault "date-fns/end_of_today"
-    let inline endOfTomorrow : unit -> System.DateTime = importDefault "date-fns/end_of_tomorrow"
-    let inline endOfYesterday : unit -> System.DateTime = importDefault "date-fns/end_of_yesterday"
+    let inline endOfToday: unit -> System.DateTime = importDefault "date-fns/end_of_today"
+    let inline endOfTomorrow: unit -> System.DateTime = importDefault "date-fns/end_of_tomorrow"
+    let inline endOfYesterday: unit -> System.DateTime = importDefault "date-fns/end_of_yesterday"
     let inline getDate a = importDefault "date-fns/get_date"
     let inline getDayOfYear a = importDefault "date-fns/get_day_of_year"
     let inline isSameDay a b = importDefault "date-fns/is_same_day"
@@ -132,9 +141,9 @@ module ExternalDateFns =
     let inline setDate a b = importDefault "date-fns/set_date"
     let inline setDayOfyear a b = importDefault "date-fns/set_day_of_year"
     let inline startOfDay a = importDefault "date-fns/start_of_day"
-    let inline startOfToday : unit -> System.DateTime = importDefault "date-fns/start_of_today"
-    let inline startOfTomorrow : unit -> System.DateTime = importDefault "date-fns/start_of_tomorrow"
-    let inline startOfYesterday : unit -> System.DateTime = importDefault "date-fns/start_of_yesterday"
+    let inline startOfToday: unit -> System.DateTime = importDefault "date-fns/start_of_today"
+    let inline startOfTomorrow: unit -> System.DateTime = importDefault "date-fns/start_of_tomorrow"
+    let inline startOfYesterday: unit -> System.DateTime = importDefault "date-fns/start_of_yesterday"
     let inline subDays a b = importDefault "date-fns/sub_days"
     let inline getDay a = importDefault "date-fns/get_day"
     let inline getISODay a = importDefault "date-fns/get_iso_day"
@@ -176,6 +185,17 @@ module ExternalDateFns =
     let inline setMonth x y = importDefault "date-fns/set_month"
     let inline startOfMonth x = importDefault "date-fns/start_of_month"
     let inline subMonths x y = importDefault "date-fns/sub_months"
+    let inline addQuarters x y = importDefault "date-fns/add_quarters"
+    let inline differenceInCalendarQuarters x y = importDefault "date-fns/difference_in_calendar_quarters"
+    let inline differenceInQuarters x y = importDefault "date-fns/difference_in_quarters"
+    let inline endOfQuarter x = importDefault "date-fns/end_of_quarter"
+    let inline getQuarter x = importDefault "date-fns/get_quarter"
+    let inline isSameQuarter x y = importDefault "date-fns/is_same_quarter"
+    let inline isThisQuarter x = importDefault "date-fns/is_this_quarter"
+    let inline setQuarter x y = importDefault "date-fns/set_quarter"
+    let inline lastDayOfQuarter x = importDefault "date-fns/last_day_of_quarter"
+    let inline startOfQuarter x = importDefault "date-fns/start_of_quarter"
+    let inline subQuarters x y = importDefault "date-fns/sub_quarters"
     let inline addYears x y = importDefault "date-fns/add_years"
     let inline subYears x y = importDefault "date-fns/sub_years"
     let inline differenceInCalendarYears x y = importDefault "date-fns/difference_in_calendar_years"
