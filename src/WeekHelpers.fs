@@ -26,9 +26,14 @@ module WeekHelpers =
         member inline date.IsInThisWeek(): bool = ExternalDateFns.isThisWeek date
         /// Returns the DateTime of the last day of the week of the current instance of DateTime
         member inline date.LastDayOfWeek(): DateTime = ExternalDateFns.lastDayOfWeek date
-
-
         /// Returns the DateTime of the first day of the week of the current instance of DateTime
         member inline date.StartOfWeek(): DateTime = ExternalDateFns.startOfWeek date
-
+        /// Same as `{DateTime}.AddWeeks(-1).StartOfWeek().StartOfDay()`
+        member inline date.StartOfPreviousWeek() : DateTime = date.AddWeeks(-1).StartOfWeek().StartOfDay()
+        /// Same as `{DateTime}.AddWeeks(-1).EndOfWeek().EndOfDay()`
+        member inline date.EndOfPreviousWeek() : DateTime = date.AddWeeks(-1).EndOfWeek().EndOfDay()
+        /// Same as `{DateTime}.AddWeeks(1).StartOfWeek().StartOfDay()`
+        member inline date.StartOfNextWeek() : DateTime = date.AddWeeks(1).StartOfWeek().StartOfDay()
+        /// Same as `{DateTime}.AddWeeks(1).EndOfWeek().EndOfDay()`
+        member inline date.EndOfNextWeek() : DateTime = date.AddWeeks(1).EndOfWeek().EndOfDay()
         member inline date.SubtractWeeks(n: int): DateTime = ExternalDateFns.subWeeks date n

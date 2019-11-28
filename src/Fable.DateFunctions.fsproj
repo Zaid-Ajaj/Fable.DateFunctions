@@ -7,10 +7,10 @@
     <PackageIconUrl></PackageIconUrl>
     <PackageTags>fsharp;fable;date;dates;datetime;date-fns</PackageTags>
     <Authors>Zaid Ajaj</Authors>
-    <Version>2.4.0</Version>
+    <Version>2.5.0</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageReleaseNotes>Add Quarterly helpers</PackageReleaseNotes>
+    <PackageReleaseNotes>Add short-hand aliases for week, month, quarter and year helpers.</PackageReleaseNotes>
   </PropertyGroup>
   <PropertyGroup>
     <NpmDependencies>

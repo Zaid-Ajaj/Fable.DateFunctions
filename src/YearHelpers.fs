@@ -21,4 +21,20 @@ module YearHelpers =
         member inline date.LastDayOfYear() : DateTime = ExternalDateFns.lastDayOfYear date
         /// Returns the DateTime of the first day in the year of the current instance of DateTime
         member inline date.StartOfYear() : DateTime = ExternalDateFns.startOfYear date
+        /// Returns the start of day of the previous year relative to the year of the current instance of `DateTime`.
+        ///
+        /// Same as `{DateTime}.AddYears(-1).StartOfYear().StartOfDay()`
+        member inline date.StartOfPreviousYear() : DateTime = date.AddYears(-1).StartOfYear().StartOfDay()
+        /// Returns the end of day of the previous year relative to the year of the current instance of `DateTime`.
+        ///
+        /// Same as `{DateTime}.AddYears(-1).EndOfYear().EndOfDay()`
+        member inline date.EndOfPreviousYear() : DateTime = date.AddYears(-1).EndOfYear().EndOfDay()
+        /// Returns the start of day of the next year relative to the year of the current instance of `DateTime`.
+        ///
+        /// Same as `{DateTime}.AddYears(1).StartOfYear().StartOfDay()`
+        member inline date.StartOfNextYear() : DateTime = date.AddYears(1).StartOfYear().StartOfDay()
+        /// Returns the end of day of the next year relative to the year of the current instance of `DateTime`.
+        ///
+        /// Same as `{DateTime}.AddYears(1).EndOfYear().EndOfDay()`
+        member inline date.EndOfNextYear() : DateTime = date.AddYears(1).EndOfYear().EndOfDay()
         member inline date.SubtractYears(n : int) : DateTime = ExternalDateFns.subYears date n

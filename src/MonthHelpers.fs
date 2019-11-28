@@ -16,4 +16,20 @@ module MonthHelpers =
         member inline date.IsInThisMonth() : bool = ExternalDateFns.isThisMonth date
         member inline date.SetMonth(month : Months) : DateTime = ExternalDateFns.setMonth date month
         member inline date.StartOfMonth() : DateTime = ExternalDateFns.startOfMonth date
+        /// Returns the start of day of the previous month relative to the month of the current instance of `DateTime`.
+        ///
+        /// Same as `{DateTime}.AddMonths(-1).StartOfMonth().StartOfDay()`
+        member inline date.StartOfPreviousMonth() : DateTime = date.AddMonths(-1).StartOfMonth().StartOfDay()
+        /// Returns the end of day of the previous month relative to the month of the current instance of `DateTime`.
+        ///
+        /// Same as `{DateTime}.AddMinutes(-1).EndOfMonth().EndOfDay()`
+        member inline date.EndOfPreviousMonth() : DateTime = date.AddMinutes(-1).EndOfMonth().EndOfDay()
+        /// Returns the start of day of the next month relative to the month of the current instance of `DateTime`.
+        ///
+        /// Same as `{DateTime}.AddMonths(1).StartOfMonth().StartOfDay()`
+        member inline date.StartOfNextMonth() : DateTime = date.AddMonths(1).StartOfMonth().StartOfDay()
+        /// Returns the end of day of the next month relative to the month of the current instance of `DateTime`.
+        ///
+        /// Same as `{DateTime}.AddMonths(1).EndOfMonth().EndOfDay()`
+        member inline date.EndOfNextMonth() : DateTime = date.AddMonths(1).EndOfMonth().EndOfDay()
         member inline date.SubtractMonths(months: int) : DateTime = ExternalDateFns.subMonths date months
