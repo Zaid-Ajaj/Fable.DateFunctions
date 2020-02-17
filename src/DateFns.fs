@@ -25,7 +25,7 @@ type TimeUnit =
 
 type Months =
     | January = 0
-    | Februari = 1
+    | February = 1
     | March = 2
     | April = 3
     | May = 4
