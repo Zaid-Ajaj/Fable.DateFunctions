@@ -7,10 +7,10 @@
     <PackageIconUrl></PackageIconUrl>
     <PackageTags>fsharp;fable;date;dates;datetime;date-fns</PackageTags>
     <Authors>Zaid Ajaj</Authors>
-    <Version>2.5.0</Version>
+    <Version>2.6.0</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageReleaseNotes>Add short-hand aliases for week, month, quarter and year helpers.</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix type in Months type. Februari -> February</PackageReleaseNotes>
   </PropertyGroup>
   <PropertyGroup>
     <NpmDependencies>
