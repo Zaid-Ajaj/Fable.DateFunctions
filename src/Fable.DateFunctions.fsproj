@@ -14,7 +14,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <NpmDependencies>
-      <NpmPackage Name="date-fns" Version=">= 1.30 lt 2.0" ResolutionStrategy="Min" />
+      <NpmPackage Name="date-fns" Version=">= 2.14 lt 3.0" ResolutionStrategy="Min" />
     </NpmDependencies>
   </PropertyGroup>
   <ItemGroup>

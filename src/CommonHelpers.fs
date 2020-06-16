@@ -19,13 +19,13 @@ module CommonHelpers =
         /// Compare the two dates and return -1 if the first date is after the second, 1 if the first date is before the second or 0 if dates are equal.
         member inline date.CompareDesc(other: DateTime) : int = ExternalDateFns.compareDesc date other
         /// Return the distance between the given dates in words.
-        member inline date.DistanceInWords(other: DateTime) : string = ExternalDateFns.distanceInWords date other (obj())
+        member inline date.FormatDistance(other: DateTime) : string = ExternalDateFns.formatDistance date other (obj())
         /// Return the distance between the given dates in words with given options
-        member inline date.DistanceInWords(other : DateTime, opts: IDistanceInWordsOptions) : string = ExternalDateFns.distanceInWords date other opts
+        member inline date.FormatDistance(other : DateTime, opts: IFormatDistanceOptions) : string = ExternalDateFns.formatDistance date other opts
         /// Return the distance between the given dates in words, using strict units. This is like distanceInWords, but does not use helpers like 'almost', 'over', 'less than' and the like.
-        member inline date.DistanceInWordsStrict(other: DateTime, opts: IDistanceInWordsStrictOptions) : string = ExternalDateFns.dictanceInWordsStrict date other opts
+        member inline date.FormatDistanceStrict(other: DateTime, opts: IDistanceInWordsStrictOptions) : string = ExternalDateFns.formatDistanceStrict date other opts
         /// Returns the distance between the given date and now in words.
-        member inline otherDate.DistanceInWordsToNow(opts: IDistanceInWordsOptions) : string = ExternalDateFns.distanceInWordsToNow otherDate opts
+        member inline otherDate.FormatDistanceToNow(opts: IFormatDistanceOptions) : string = ExternalDateFns.formatDistanceToNow otherDate opts
         /// Returns the formatted date string in the given default format:
         /// YYYY-MM-DDTHH:mm:ss.SSSZ.
         member inline date.Format() : string = ExternalDateFns.format date
