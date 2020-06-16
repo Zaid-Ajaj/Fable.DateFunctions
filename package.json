@@ -14,7 +14,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "date-fns": "^1.28.2",
+    "date-fns": "^2.14.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "remotedev": "^0.2.9",
