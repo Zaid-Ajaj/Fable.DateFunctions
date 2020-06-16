@@ -5,7 +5,12 @@ function resolve(filePath) {
   return path.join(__dirname, filePath)
 }
 
+// If we're running the webpack-dev-server, assume we're in development mode
+var isProduction = !process.argv.find(v => v.indexOf('webpack-dev-server') !== -1);
+console.log("Bundling for " + (isProduction ? "production" : "development") + "...");
+
 module.exports = {
+  mode: isProduction ? "production" : "development",
   devtool: "source-map",
   entry: resolve('./app/App.fsproj'),
   output: {
@@ -27,7 +32,7 @@ module.exports = {
       },
       {
         test: /\.(sa|c)ss$/,
-        use: [ "style-loader", "css-loader"]
+        use: ["style-loader", "css-loader"]
       }
     ]
   },
