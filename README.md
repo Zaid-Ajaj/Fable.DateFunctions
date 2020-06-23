@@ -2,6 +2,12 @@
 
 Fable binding for the popular [date-fns](https://date-fns.org/), a library for date manipulation. This binding implements the imports as 120+ extension methods for `DateTime` instances (and a couple of static member inlines for `DateTime`). 32 Languages are supported for formatting dates, see [live demo](https://zaid-ajaj.github.io/Fable.DateFunctions/).
 
+## Installation Using Femto
+Using [Femto](https://github.com/Zaid-Ajaj/Femto) you can install the library and its npm dependency in one go:
+```
+femto install Fable.DateFunctions
+```
+
 ## Installation
 Install the binding from Nuget
 ```
@@ -9,7 +15,7 @@ paket add Fable.DateFunctions --project path/to/Proj.fsproj
 ```
 Install the actual Javascript library `date-fns` from npm
 ```
-npm install date-fns@1.30.1
+npm install date-fns@2.14.0
 ```
 Now from your F# code
 ```fs
