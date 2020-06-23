@@ -37,6 +37,7 @@ let introduction =
 let yesterday = now.SubtractDays(1)
 let tomorrow = now.AddDays(1)"""
           Common.highlight (sprintf "now.IsToday() // => %A" (now.IsToday()))
+          Common.highlight (sprintf "now.IsToday() // => %A" (ExternalDateFns.isToday now))
           Common.highlight (sprintf "now.FormatDistance(tomorrow) // => %A" (now.FormatDistance(tomorrow)))
           Common.highlight (sprintf "now.IsTomorrow() // => %A" (now.IsTomorrow()))
           Common.highlight (sprintf "now.IsInTheSameDayAs(tomorrow) // => %A" (now.IsInTheSameDayAs(tomorrow)))
@@ -58,25 +59,23 @@ let tomorrow = now.AddDays(1)"""
           p []
               [ span []
                     [ str "See "
-                      a [ Href "https://date-fns.org/v1.29.0/docs/format" ]
-                          [ str "https://date-fns.org/v1.29.0/docs/format" ]
+                      a [ Href "https://date-fns.org/v2.14.0/docs/format" ]
+                          [ str "https://date-fns.org/v2.14.0/docs/format" ]
                       str " for the full documentation on formatting strings" ] ]
-          Common.highlight
-              (sprintf "now.Format(\"Do MMMM yyyy\", DateTime.Locales.Czech) ==> %A"
-                   (now.Format("Do MMMM yyyy", DateTime.Locales.Czech)))
-          Common.highlight
-              (sprintf "now.Format(\"Do MMMM yyyy\", DateTime.Locales.Spanish) ==> %A"
-                   (now.Format("Do MMMM yyyy", DateTime.Locales.Spanish)))
-          Common.highlight
-              (sprintf "now.Format(\"Do MMMM yyyy\", DateTime.Locales.French) ==> %A"
-                   (now.Format("Do MMMM yyyy", DateTime.Locales.French)))
-          Common.highlight
-              (sprintf "now.Format(\"Do MMMM yyyy\", DateTime.Locales.Japanese) ==> %A"
-                   (now.Format("Do MMMM yyyy", DateTime.Locales.Japanese)))
-          Common.highlight
-              (sprintf "now.Format(\"Do MMMM yyyy\", DateTime.Locales.Russian) ==> %A"
-                   (now.Format("Do MMMM yyyy", DateTime.Locales.Russian)))
+          Common.highlight (sprintf "now.Format(\"Do MMMM yyyy\") ==> %A" (now.Format("Do MMMM yyyy")))
+
+          Common.highlight (sprintf "now.Format(\"Do MMMM yyyy\", DateTime.Locales.Czech) ==> %A" (now.Format("Do MMMM yyyy", DateTime.Locales.Czech)))
+
+          Common.highlight (sprintf "now.Format(\"Do MMMM yyyy\", DateTime.Locales.Spanish) ==> %A" (now.Format("Do MMMM yyyy", DateTime.Locales.Spanish)))
+
+          Common.highlight (sprintf "now.Format(\"Do MMMM yyyy\", DateTime.Locales.French) ==> %A" (now.Format("Do MMMM yyyy", DateTime.Locales.French)))
+
+          Common.highlight (sprintf "now.Format(\"Do MMMM yyyy\", DateTime.Locales.Japanese) ==> %A" (now.Format("Do MMMM yyyy", DateTime.Locales.Japanese)))
+
+          Common.highlight (sprintf "now.Format(\"Do MMMM yyyy\", DateTime.Locales.Russian) ==> %A" (now.Format("Do MMMM yyyy", DateTime.Locales.Russian)))
+
           p [] [ str "Distance in words" ]
+
           Common.highlight
               (sprintf """let formatOptions = createEmpty<IFormatDistanceOptions>
 formatOptions.includeSeconds <- false
@@ -85,8 +84,5 @@ formatOptions.locale <- DateTime.Locales.Dutch
 DateTime.Now.SubtractMonths(1).FormatDistanceToNow(formatOptions) => // "%s" """
 
                    formatted) ]
-
-
-let spacing = Props.Style [ Props.Padding 20 ]
 
 let render (state: State) dispatch = introduction
