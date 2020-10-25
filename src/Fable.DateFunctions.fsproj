@@ -7,14 +7,14 @@
     <PackageIconUrl></PackageIconUrl>
     <PackageTags>fsharp;fable;date;dates;datetime;date-fns</PackageTags>
     <Authors>Zaid Ajaj</Authors>
-    <Version>3.0.2</Version>
+    <Version>3.1.0</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageReleaseNotes>Fix imported ISO functions naming</PackageReleaseNotes>
+    <PackageReleaseNotes>Enable date-fns extensions for DateTimeOffset</PackageReleaseNotes>
   </PropertyGroup>
   <PropertyGroup>
     <NpmDependencies>
-      <NpmPackage Name="date-fns" Version=">= 2.14 lt 3.0" ResolutionStrategy="Max" />
+      <NpmPackage Name="date-fns" Version=">= 2.16.1 lt 3.0" ResolutionStrategy="Max" />
     </NpmDependencies>
   </PropertyGroup>
   <ItemGroup>

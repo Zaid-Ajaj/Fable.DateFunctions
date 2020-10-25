@@ -33,3 +33,35 @@ module MonthHelpers =
         /// Same as `{DateTime}.AddMonths(1).EndOfMonth().EndOfDay()`
         member inline date.EndOfNextMonth() : DateTime = date.AddMonths(1).EndOfMonth().EndOfDay()
         member inline date.SubtractMonths(months: int) : DateTime = ExternalDateFns.subMonths date months
+
+[<AutoOpen>]
+module MonthHelpersDateTimeOffset =
+    type DateTimeOffset with
+        member inline date.AddMonths(months: int) : DateTimeOffset = DateTimeOffset(ExternalDateFns.addMonths date months)
+        member inline date.DifferenceInCalendarMonths(otherDate : DateTime) : int = ExternalDateFns.differenceInCalendarMonths date otherDate
+        member inline date.DifferenceInMonths(otherDate : DateTime) : int = ExternalDateFns.differenceInMonths date otherDate
+        member inline date.EndOfMonth() : DateTimeOffset = DateTimeOffset(ExternalDateFns.endOfMonth date)
+        member inline date.GetDaysInMonth() : int = ExternalDateFns.getDaysInMonth date
+        member inline date.IsFirstDayOfMonth() : bool = ExternalDateFns.isFirstDayOfMonth date
+        member inline date.IsLastDayOfMonth() : bool = ExternalDateFns.isLastDayOfMonth date
+        member inline date.IsInTheSameMonthAs(otherDate: DateTimeOffset) : bool = ExternalDateFns.isSameMonth date otherDate
+        member inline date.IsInThisMonth() : bool = ExternalDateFns.isThisMonth date
+        member inline date.SetMonth(month : Months) : DateTimeOffset = DateTimeOffset(ExternalDateFns.setMonth date month)
+        member inline date.StartOfMonth() : DateTimeOffset = DateTimeOffset(ExternalDateFns.startOfMonth date)
+        /// Returns the start of day of the previous month relative to the month of the current instance of `DateTimeOffset`.
+        ///
+        /// Same as `{DateTime}.AddMonths(-1).StartOfMonth().StartOfDay()`
+        member date.StartOfPreviousMonth() = date.SubtractMonths(1).StartOfMonth().StartOfDay()
+        /// Returns the end of day of the previous month relative to the month of the current instance of `DateTimeOffset`.
+        ///
+        /// Same as `{DateTime}.AddMinutes(-1).EndOfMonth().EndOfDay()`
+        member date.EndOfPreviousMonth() = date.SubtractMonths(1).EndOfMonth().EndOfDay()
+        /// Returns the start of day of the next month relative to the month of the current instance of `DateTimeOffset`.
+        ///
+        /// Same as `{DateTime}.AddMonths(1).StartOfMonth().StartOfDay()`
+        member date.StartOfNextMonth() = date.AddMonths(1).StartOfMonth().StartOfDay()
+        /// Returns the end of day of the next month relative to the month of the current instance of `DateTimeOffset`.
+        ///
+        /// Same as `{DateTime}.AddMonths(1).EndOfMonth().EndOfDay()`
+        member date.EndOfNextMonth() = date.AddMonths(1).EndOfMonth().EndOfDay()
+        member date.SubtractMonths(months: int) : DateTimeOffset = DateTimeOffset(ExternalDateFns.subMonths date months)

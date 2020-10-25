@@ -1,6 +1,6 @@
 # Fable.DateFunctions [![Build Status](https://travis-ci.org/Zaid-Ajaj/Fable.DateFunctions.svg?branch=master)](https://travis-ci.org/Zaid-Ajaj/Fable.DateFunctions) [![Build status](https://ci.appveyor.com/api/projects/status/od92jraqhec4vbj5?svg=true)](https://ci.appveyor.com/project/Zaid-Ajaj/fable-datefunctions) [![Nuget](https://img.shields.io/nuget/v/Fable.DateFunctions.svg?maxAge=0&colorB=brightgreen)](https://www.nuget.org/packages/Fable.DateFunctions)
 
-Fable binding for the popular [date-fns](https://date-fns.org/), a library for date manipulation. This binding implements the imports as 120+ extension methods for `DateTime` instances (and a couple of static member inlines for `DateTime`). 32 Languages are supported for formatting dates, see [live demo](https://zaid-ajaj.github.io/Fable.DateFunctions/).
+Fable binding for the popular [date-fns](https://date-fns.org/), a library for date manipulation. This binding implements the imports as 120+ extension methods for `DateTime` and `DateTimeOffset` instances. 32 Languages are supported for formatting dates, see [live demo](https://zaid-ajaj.github.io/Fable.DateFunctions/).
 
 ## Installation Using Femto
 Using [Femto](https://github.com/Zaid-Ajaj/Femto) you can install the library and its npm dependency in one go:

@@ -14,7 +14,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "date-fns": "^2.14.0",
+    "date-fns": "2.16.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "remotedev": "^0.2.9"
@@ -24,9 +24,9 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "babel-loader": "^8.0.0",
+    "css-loader": "^3.6.0",
     "fable-compiler": "^2.10.1",
     "fable-loader": "^2.1.9",
-    "css-loader": "^3.6.0",
     "gh-pages": "^1.1.0",
     "loglevel": "^1.6.0",
     "style-loader": "^0.20.3",

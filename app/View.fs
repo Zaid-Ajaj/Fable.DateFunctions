@@ -30,14 +30,13 @@ let introduction =
                     [ str "Fable binding for "
                       a [ Href "https://date-fns.org/" ] [ str "date-fns" ]
                       str
-                          " with 120+ functions for working with dates, implemented as extension methods for DateTime (some methods are static member inlines for DateTime)" ] ]
+                          " with 120+ functions for working with dates, implemented as extension methods for DateTime and DateTimeOffset" ] ]
           hr []
           h1 [ Style [ FontSize 30 ] ] [ str "Examples and configurations" ]
           Common.highlight """let now = DateTime.Now
 let yesterday = now.SubtractDays(1)
 let tomorrow = now.AddDays(1)"""
           Common.highlight (sprintf "now.IsToday() // => %A" (now.IsToday()))
-          Common.highlight (sprintf "now.IsToday() // => %A" (ExternalDateFns.isToday now))
           Common.highlight (sprintf "now.FormatDistance(tomorrow) // => %A" (now.FormatDistance(tomorrow)))
           Common.highlight (sprintf "now.IsTomorrow() // => %A" (now.IsTomorrow()))
           Common.highlight (sprintf "now.IsInTheSameDayAs(tomorrow) // => %A" (now.IsInTheSameDayAs(tomorrow)))
@@ -59,20 +58,20 @@ let tomorrow = now.AddDays(1)"""
           p []
               [ span []
                     [ str "See "
-                      a [ Href "https://date-fns.org/v2.14.0/docs/format" ]
-                          [ str "https://date-fns.org/v2.14.0/docs/format" ]
+                      a [ Href "https://date-fns.org/v2.16.1/docs/format" ]
+                          [ str "https://date-fns.org/v2.16.1/docs/format" ]
                       str " for the full documentation on formatting strings" ] ]
-          Common.highlight (sprintf "now.Format(\"Do MMMM yyyy\") ==> %A" (now.Format("Do MMMM yyyy")))
+          Common.highlight (sprintf "now.Format(\"dd MMMM yyyy\") ==> %A" (now.Format("dd MMMM yyyy")))
 
-          Common.highlight (sprintf "now.Format(\"Do MMMM yyyy\", DateTime.Locales.Czech) ==> %A" (now.Format("Do MMMM yyyy", DateTime.Locales.Czech)))
+          Common.highlight (sprintf "now.Format(\"dd MMMM yyyy\", DateTime.Locales.Czech) ==> %A" (now.Format("dd MMMM yyyy", DateTime.Locales.Czech)))
 
-          Common.highlight (sprintf "now.Format(\"Do MMMM yyyy\", DateTime.Locales.Spanish) ==> %A" (now.Format("Do MMMM yyyy", DateTime.Locales.Spanish)))
+          Common.highlight (sprintf "now.Format(\"dd MMMM yyyy\", DateTime.Locales.Spanish) ==> %A" (now.Format("dd MMMM yyyy", DateTime.Locales.Spanish)))
 
-          Common.highlight (sprintf "now.Format(\"Do MMMM yyyy\", DateTime.Locales.French) ==> %A" (now.Format("Do MMMM yyyy", DateTime.Locales.French)))
+          Common.highlight (sprintf "now.Format(\"dd MMMM yyyy\", DateTime.Locales.French) ==> %A" (now.Format("dd MMMM yyyy", DateTime.Locales.French)))
 
-          Common.highlight (sprintf "now.Format(\"Do MMMM yyyy\", DateTime.Locales.Japanese) ==> %A" (now.Format("Do MMMM yyyy", DateTime.Locales.Japanese)))
+          Common.highlight (sprintf "now.Format(\"dd MMMM yyyy\", DateTime.Locales.Japanese) ==> %A" (now.Format("dd MMMM yyyy", DateTime.Locales.Japanese)))
 
-          Common.highlight (sprintf "now.Format(\"Do MMMM yyyy\", DateTime.Locales.Russian) ==> %A" (now.Format("Do MMMM yyyy", DateTime.Locales.Russian)))
+          Common.highlight (sprintf "now.Format(\"dd MMMM yyyy\", DateTime.Locales.Russian) ==> %A" (now.Format("dd MMMM yyyy", DateTime.Locales.Russian)))
 
           p [] [ str "Distance in words" ]
 
