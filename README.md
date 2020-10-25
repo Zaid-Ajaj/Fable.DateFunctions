@@ -15,7 +15,7 @@ paket add Fable.DateFunctions --project path/to/Proj.fsproj
 ```
 Install the actual Javascript library `date-fns` from npm
 ```
-npm install date-fns@2.14.0
+npm install date-fns@2.16.1
 ```
 Now from your F# code
 ```fs
