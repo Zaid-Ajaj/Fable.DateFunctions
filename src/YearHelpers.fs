@@ -41,7 +41,7 @@ module YearHelpers =
 
 [<AutoOpen>]
 module YearHelpersDateTimeOffset =
-    type DateTime with
+    type DateTimeOffset with
         member inline date.AddYears(n: int) : DateTimeOffset = DateTimeOffset(ExternalDateFns.addYears date n)
         member inline date.DifferenceInCalendarYears(otherDate: DateTimeOffset) : int = ExternalDateFns.differenceInCalendarYears date otherDate
         member inline date.DifferenceInYears(otherDate: DateTimeOffset) : int = ExternalDateFns.differenceInYears date otherDate
