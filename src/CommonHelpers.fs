@@ -91,6 +91,9 @@ module CommonHelpers =
         /// If an argument is a string, the function tries to parse it. Function accepts complete ISO 8601 formats as well as partial implementations. ISO 8601: http://en.wikipedia.org/wiki/ISO_8601
         /// If all above fails, the function passes the given argument to Date constructor.
         static member inline Parse(date: int, opts: ParseOpts) : DateTime = ExternalDateFns.parseWithOpts date opts
+        [<Emit "Intl.DateTimeFormat().resolvedOptions().timeZone">]
+        /// Returns the current timezone of the application
+        static member inline CurrentTimezone() : string = jsNative
 
 [<AutoOpen>]
 module CommonHelpersDateTimeOffset =
@@ -177,3 +180,6 @@ module CommonHelpersDateTimeOffset =
         /// If an argument is a string, the function tries to parse it. Function accepts complete ISO 8601 formats as well as partial implementations. ISO 8601: http://en.wikipedia.org/wiki/ISO_8601
         /// If all above fails, the function passes the given argument to Date constructor.
         static member inline Parse(date: int, opts: ParseOpts) : DateTimeOffset = ExternalDateFns.parseWithOpts date opts
+        [<Emit "Intl.DateTimeFormat().resolvedOptions().timeZone">]
+        /// Returns the current timezone of the application
+        static member inline CurrentTimezone() : string = jsNative
