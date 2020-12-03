@@ -25,17 +25,13 @@ module WeekHelpers =
         /// Returns the DateTime of the first day of the week of the current instance of DateTime based on the input locale
         member inline date.StartOfWeek(locale: ILocale): DateTime =
             ExternalDateFns.startOfWeekWithOptions date (createObj [
-                "options" ==> createObj [
-                    "locale" ==> locale
-                ]
+                "locale" ==> locale
             ])
 
         /// Returns the DateTime of the first day of the week of the current instance of DateTime
         member inline date.StartOfWeek(weekStartsOn: Day): DateTime =
             ExternalDateFns.startOfWeekWithOptions date (createObj [
-                "options" ==> createObj [
-                    "weekStartsOn" ==> weekStartsOn
-                ]
+                "weekStartsOn" ==> weekStartsOn
             ])
 
         /// Same as `{DateTime}.AddWeeks(-1).StartOfWeek().StartOfDay()`
@@ -76,17 +72,13 @@ module WeekHelpersDateTimeOffset =
         /// Returns the DateTime of the first day of the week of the current instance of DateTime based on a locale
         member inline date.StartOfWeek(locale: ILocale): DateTimeOffset =
             DateTimeOffset(ExternalDateFns.startOfWeekWithOptions date (createObj [
-                "options" ==> createObj [
-                    "locale" ==> locale
-                ]
+                "locale" ==> locale
             ]))
 
         /// Returns the DateTime of the first day of the week of the current instance of DateTime based on a locale
         member inline date.StartOfWeek(weekStartsOn: Day): DateTimeOffset =
             DateTimeOffset(ExternalDateFns.startOfWeekWithOptions date (createObj [
-                "options" ==> createObj [
-                    "weekStartsOn" ==> weekStartsOn
-                ]
+                "weekStartsOn" ==> weekStartsOn
             ]))
 
         /// Same as `{DateTime}.AddWeeks(-1).StartOfWeek().StartOfDay()`
