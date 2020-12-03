@@ -1,13 +1,9 @@
 module Program
 
-open Elmish
-open Elmish.React
-open Elmish.Debug
+open Feliz
+open Browser.Dom
 
-open App.State
-open App.View
-           
-Program.mkProgram init update render
-|> Program.withConsoleTrace
-|> Program.withReactSynchronous "elmish-app"
-|> Program.run
+ReactDOM.render(
+    App.Render(),
+    document.getElementById "feliz-app"
+)

@@ -8,10 +8,12 @@ else
   export FrameworkPathOverride=$(dirname $(which mono))/../lib/mono/4.5/
 fi
 
+dotnet tool restore
+
 if [ -e "paket.lock" ]; then
-  $MONO .paket/paket.exe restore
+  dotnet paket restore
 else
-  $MONO .paket/paket.exe install
+  dotnet paket install
 fi
 exit_code=$?
 if [ $exit_code -ne 0 ]; then

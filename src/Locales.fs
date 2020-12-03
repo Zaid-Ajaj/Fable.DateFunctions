@@ -1,39 +1,70 @@
 namespace Fable.DateFunctions
 
-open Fable.Core.JsInterop
+open Fable.Core
 open System
 
+[<Erase>]
 type DateFnLocales() =
-    member inline this.Russian : ILocale = importDefault "date-fns/locale/ru"
-    member inline this.French : ILocale = importDefault "date-fns/locale/fr"
-    member inline this.Esperanto : ILocale = importDefault "date-fns/locale/eo"
-    member inline this.ChineseSimplified : ILocale = importDefault "date-fns/locale/zh_cn"
-    member inline this.German : ILocale = importDefault "date-fns/locale/de"
-    member inline this.Spanish : ILocale = importDefault "date-fns/locale/es"
-    member inline this.Japanese : ILocale = importDefault "date-fns/locale/ja"
-    member inline this.Dutch : ILocale = importDefault "date-fns/locale/nl"
-    member inline this.ChineseTraditional : ILocale = importDefault "date-fns/locale/zh_tw"
-    member inline this.NorwegianBokmal : ILocale = importDefault "date-fns/locale/nb"
-    member inline this.Indonesian : ILocale = importDefault "date-fns/locale/nb"
-    member inline this.Italian : ILocale = importDefault "date-fns/locale/it"
-    member inline this.Polish : ILocale = importDefault "date-fns/locale/pl"
-    member inline this.Portuguese : ILocale = importDefault "date-fns/locale/pt"
-    member inline this.Swedish : ILocale = importDefault "date-fns/locale/sv"
-    member inline this.Turkish : ILocale = importDefault "date-fns/locale/tr"
-    member inline this.Korean : ILocale = importDefault "date-fns/locale/ko"
-    member inline this.Greek : ILocale = importDefault "date-fns/locale/el"
-    member inline this.Slovak : ILocale = importDefault "date-fns/locale/sk"
-    member inline this.Filipino : ILocale = importDefault "date-fns/locale/fil"
-    member inline this.Danish : ILocale = importDefault "date-fns/locale/da"
-    member inline this.IceLandic : ILocale = importDefault "date-fns/locale/is"
-    member inline this.Finnish : ILocale = importDefault "date-fns/locale/fi"
-    member inline this.Thai : ILocale = importDefault "date-fns/locale/th"
-    member inline this.Croatian : ILocale = importDefault "date-fns/locale/hr"
-    member inline this.Arabic : ILocale = importDefault "date-fns/locale/ar"
-    member inline this.Bulgarian : ILocale = importDefault "date-fns/locale/bg"
-    member inline this.Czech : ILocale = importDefault "date-fns/locale/cs"
-    member inline this.Macedonian : ILocale = importDefault "date-fns/locale/mk"
-    member inline this.Romanian : ILocale = importDefault "date-fns/locale/ro"
+    [<Import("ru", "date-fns/locale")>]
+    member inline this.Russian : ILocale = jsNative
+    [<Import("fr", "date-fns/locale")>]
+    member inline this.French : ILocale = jsNative
+    [<Import("eo", "date-fns/locale")>]
+    member inline this.Esperanto : ILocale = jsNative
+    [<Import("zh_cn", "date-fns/locale")>]
+    member inline this.ChineseSimplified : ILocale = jsNative
+    [<Import("de", "date-fns/locale")>]
+    member inline this.German : ILocale = jsNative
+    [<Import("es", "date-fns/locale")>]
+    member inline this.Spanish : ILocale = jsNative
+    [<Import("ja", "date-fns/locale")>]
+    member inline this.Japanese : ILocale = jsNative
+    [<Import("nl", "date-fns/locale")>]
+    member inline this.Dutch : ILocale = jsNative
+    [<Import("zh_tw", "date-fns/locale")>]
+    member inline this.ChineseTraditional : ILocale = jsNative
+    [<Import("nb", "date-fns/locale")>]
+    member inline this.NorwegianBokmal : ILocale = jsNative
+    [<Import("nb", "date-fns/locale")>]
+    member inline this.Indonesian : ILocale = jsNative
+    [<Import("it", "date-fns/locale")>]
+    member inline this.Italian : ILocale = jsNative
+    [<Import("pl", "date-fns/locale")>]
+    member inline this.Polish : ILocale = jsNative
+    [<Import("pt", "date-fns/locale")>]
+    member inline this.Portuguese : ILocale = jsNative
+    [<Import("sv", "date-fns/locale")>]
+    member inline this.Swedish : ILocale = jsNative
+    [<Import("tr", "date-fns/locale")>]
+    member inline this.Turkish : ILocale = jsNative
+    [<Import("ko", "date-fns/locale")>]
+    member inline this.Korean : ILocale = jsNative
+    [<Import("el", "date-fns/locale")>]
+    member inline this.Greek : ILocale = jsNative
+    [<Import("sk", "date-fns/locale")>]
+    member inline this.Slovak : ILocale = jsNative
+    [<Import("fil", "date-fns/locale")>]
+    member inline this.Filipino : ILocale = jsNative
+    [<Import("da", "date-fns/locale")>]
+    member inline this.Danish : ILocale = jsNative
+    [<Import("is", "date-fns/locale")>]
+    member inline this.IceLandic : ILocale = jsNative
+    [<Import("fi", "date-fns/locale")>]
+    member inline this.Finnish : ILocale = jsNative
+    [<Import("th", "date-fns/locale")>]
+    member inline this.Thai : ILocale = jsNative
+    [<Import("hr", "date-fns/locale")>]
+    member inline this.Croatian : ILocale = jsNative
+    [<Import("ar", "date-fns/locale")>]
+    member inline this.Arabic : ILocale = jsNative
+    [<Import("bg", "date-fns/locale")>]
+    member inline this.Bulgarian : ILocale = jsNative
+    [<Import("cs", "date-fns/locale")>]
+    member inline this.Czech : ILocale = jsNative
+    [<Import("mk", "date-fns/locale")>]
+    member inline this.Macedonian : ILocale = jsNative
+    [<Import("ro", "date-fns/locale")>]
+    member inline this.Romanian : ILocale = jsNative
 
 [<AutoOpen>]
 module LocalesHelper =

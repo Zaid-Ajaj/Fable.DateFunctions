@@ -3,6 +3,7 @@ source https://api.nuget.org/v3/index.json
 storage:none
 
 nuget Elmish.Toastr
+nuget Feliz
 
 nuget FSharp.Core
 nuget Fable.Core

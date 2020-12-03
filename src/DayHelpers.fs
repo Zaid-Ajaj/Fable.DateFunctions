@@ -13,7 +13,7 @@ module DayHelpers =
         member inline dateLeft.DifferenceInDays(dateRight: DateTime) : int = ExternalDateFns.differenceInDays dateLeft dateRight
         /// Return the array of dates within the specified range.
         static member inline DatesBetween(startDate : DateTime, endDate: DateTime) : DateTime[] =
-            ExternalDateFns.eachDayOfInterval { start = startDate; ``end``= endDate }
+            ExternalDateFns.eachDayOfInterval {| start = startDate; ``end``= endDate |}
         /// Return the end of a day for the given date. The result will be in the local timezone.
         member inline date.EndOfDay() : DateTime = ExternalDateFns.endOfDay date
         static member inline EndOfToday() : DateTime = ExternalDateFns.endOfToday()

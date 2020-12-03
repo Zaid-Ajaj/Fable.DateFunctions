@@ -63,147 +63,289 @@ type ParseOpts =
     /// the additional number of digits in the extended year format.
     abstract additionalDigits: int with get, set
 
-type Interval = { start: obj; ``end``: obj }
+type Interval = {| start: obj; ``end``: obj |}
 
 module ExternalDateFns =
-    let closestIndexTo (d: obj) (other: obj) = importDefault "date-fns/closestIndexTo"
-    let closestTo (date: obj) (other: obj) = importDefault "date-fns/closestTo"
-    let compareAsc (date: obj) (other: obj) = importDefault "date-fns/compareAsc"
-    let compareDesc (date: obj) (other: obj) = importDefault "date-fns/compareDesc"
-    let formatDistance (date: obj) (other: obj) (options: obj) = importDefault "date-fns/formatDistance"
-    let formatDistanceStrict (date: obj) (other: obj) (opts: obj) = importDefault "date-fns/formatDistanceStrict"
-    let formatDistanceToNow (date: obj) (opts: obj) = importDefault "date-fns/formatDistanceToNow"
-    let format (date: obj) = importDefault "date-fns/format"
-    let formatWithStr (date: obj) (format: string) = importDefault "date-fns/format"
-    let formatWithStrAndOptions (date: obj) (format: string) (opts: obj) = importDefault "date-fns/format"
-    let isAfter (date: obj) (other: obj) = importDefault "date-fns/isAfter"
-    let isBefore (date: obj) (other: obj) = importDefault "date-fns/isBefore"
-    let isDate (object: obj) = importDefault "date-fns/isDate"
-    let isEqual (date: obj) (other: obj) = importDefault "date-fns/isEqual"
-    let isFuture (date: obj) = importDefault "date-fns/isFuture"
-    let isPast (date: obj) = importDefault "date-fns/isPast"
-    let isValid (date: obj) = importDefault "date-fns/isValid"
-    let max (dates: obj) = importDefault "date-fns/max"
-    let min (dates: obj) = importDefault "date-fns/min"
-    let parse (input: obj) = importDefault "date-fns/parse"
-    let parseWithOpts (input: obj) (opts: obj) = importDefault "date-fns/parse"
-    let areIntervalsOverlapping (i1: Interval) (i2: Interval) = importDefault "date-fns/areIntervalsOverlapping"
+    [<Import("closestIndexTo", "date-fns")>]
+    let inline closestIndexTo (d: obj) (other: obj) = jsNative
+    [<Import("closestTo", "date-fns")>]
+    let closestTo (date: obj) (other: obj) = jsNative
+    [<Import("compareAsc", "date-fns")>]
+    let compareAsc (date: obj) (other: obj) = jsNative
+    [<Import("compareDesc", "date-fns")>]
+    let compareDesc (date: obj) (other: obj) = jsNative
+    [<Import("formatDistance", "date-fns")>]
+    let formatDistance (date: obj) (other: obj) (options: obj) = jsNative
+    [<Import("formatDistanceStrict", "date-fns")>]
+    let formatDistanceStrict (date: obj) (other: obj) (opts: obj) = jsNative
+    [<Import("formatDistanceToNow", "date-fns")>]
+    let formatDistanceToNow (date: obj) (opts: obj) = jsNative
+    [<Import("format", "date-fns")>]
+    let format (date: obj) = jsNative
+    [<Import("format", "date-fns")>]
+    let formatWithStr (date: obj) (format: string) = jsNative
+    [<Import("format", "date-fns")>]
+    let formatWithStrAndOptions (date: obj) (format: string) (opts: obj) = jsNative
+    [<Import("isAfter", "date-fns")>]
+    let isAfter (date: obj) (other: obj) = jsNative
+    [<Import("isBefore", "date-fns")>]
+    let isBefore (date: obj) (other: obj) = jsNative
+    [<Import("isDate", "date-fns")>]
+    let isDate (object: obj) = jsNative
+    [<Import("isEqual", "date-fns")>]
+    let isEqual (date: obj) (other: obj) = jsNative
+    [<Import("isFuture", "date-fns")>]
+    let isFuture (date: obj) = jsNative
+    [<Import("isPast", "date-fns")>]
+    let isPast (date: obj) = jsNative
+    [<Import("isValid", "date-fns")>]
+    let isValid (date: obj) = jsNative
+    [<Import("max", "date-fns")>]
+    let max (dates: obj) = jsNative
+    [<Import("min", "date-fns")>]
+    let min (dates: obj) = jsNative
+    [<Import("parse", "date-fns")>]
+    let parse (input: obj) = jsNative
+    [<Import("parse", "date-fns")>]
+    let parseWithOpts (input: obj) (opts: obj) = jsNative
+    [<Import("areIntervalsOverlapping", "date-fns")>]
+    let areIntervalsOverlapping (i1: Interval) (i2: Interval) = jsNative
+    [<Import("getOverlappingDaysInIntervals", "date-fns")>]
     let getOverlappingDaysInIntervals (i1: Interval) (i2: Interval) =
-        importDefault "date-fns/getOverlappingDaysInIntervals"
-    let isWithinInterval (d1: obj) (d2: Interval) = importDefault "date-fns/isWithinInterval"
-    let getTime (d: obj) = importDefault "date-fns/isWithinInterval"
-    let addMilliseconds (d: obj) (a: obj) = importDefault "date-fns/addMilliseconds"
-    let differenceInMilliseconds (a: obj) (b: obj) = importDefault "date-fns/differenceInMilliseconds"
-    let getMilliseconds (a: obj) = importDefault "date-fns/getMilliseconds"
-    let setMilliseconds (a: obj) (b: obj) = importDefault "date-fns/setMilliseconds"
-    let subMilliseconds (a: obj) (b: obj) = importDefault "date-fns/subMilliseconds"
-    let addSeconds a b = importDefault "date-fns/addSeconds"
-    let differenceInSeconds a b = importDefault "date-fns/differenceInSeconds"
-    let endOfSecond a = importDefault "date-fns/endOfSecond"
-    let getSeconds a = importDefault "date-fns/getSeconds"
-    let isSameSecond a b = importDefault "date-fns/isSameSecond"
-    let isThisSecond a = importDefault "date-fns/isThisSecond"
-    let setSeconds a b = importDefault "date-fns/setSeconds"
-    let startOfSecond a = importDefault "date-fns/startOfSecond"
-    let subSeconds a b = importDefault "date-fns/subSeconds"
-    let addMinutes a b = importDefault "date-fns/addMinutes"
-    let differenceInMinutes a b = importDefault "date-fns/differenceInMinutes"
-    let endOfMinute a = importDefault "date-fns/endOfMinute"
-    let getMinutes a = importDefault "date-fns/getMinutes"
-    let isSameMinute a b = importDefault "date-fns/isSameMinute"
-    let isThisMinute a = importDefault "date-fns/isThisMinute"
-    let setMinutes a b = importDefault "date-fns/setMinutes"
-    let startOfMinute a = importDefault "date-fns/startOfMinute"
-    let subMinutes a b = importDefault "date-fns/subMinutes"
-    let addHours a b = importDefault "date-fns/addHours"
-    let differenceInHours a b = importDefault "date-fns/differenceInHours"
-    let endOfHour a = importDefault "date-fns/endOfHour"
-    let getHours a = importDefault "date-fns/getHours"
-    let isSameHour a b = importDefault "date-fns/isSameHour"
-    let isThisHour a = importDefault "date-fns/isThisHour"
-    let setHours a b = importDefault "date-fns/setHours"
-    let startOfHour a = importDefault "date-fns/startOfHour"
-    let subHours a b = importDefault "date-fns/subHours"
-    let addDays a b = importDefault "date-fns/addDays"
-    let differenceInCalendarDays a b = importDefault "date-fns/differenceInCalendarDays"
-    let differenceInDays a b = importDefault "date-fns/differenceInDays"
-    let eachDayOfInterval (a: Interval) = importDefault "date-fns/eachDayOfInterval"
-    let endOfDay a = importDefault "date-fns/endOfDay"
-    let endOfToday(): System.DateTime = importDefault "date-fns/endOfToday"
-    let endOfTomorrow(): System.DateTime = importDefault "date-fns/endOfTomorrow"
-    let endOfYesterday(): System.DateTime = importDefault "date-fns/endOfYesterday"
-    let getDate a = importDefault "date-fns/getDate"
-    let getDayOfYear a = importDefault "date-fns/getDayOfYear"
-    let isSameDay a b = importDefault "date-fns/isSameDay"
-    let isToday (a: obj) = importDefault "date-fns/isToday"
-    let isTomorrow a = importDefault "date-fns/isTomorrow"
-    let isYesterday a = importDefault "date-fns/isYesterday"
-    let setDate a b = importDefault "date-fns/setDate"
-    let setDayOfyear a b = importDefault "date-fns/setDayOfYear"
-    let startOfDay a = importDefault "date-fns/startOfDay"
-    let startOfToday(): System.DateTime = importDefault "date-fns/startOfToday"
-    let startOfTomorrow(): System.DateTime = importDefault "date-fns/startOfTomorrow"
-    let startOfYesterday(): System.DateTime = importDefault "date-fns/startOfYesterday"
-    let subDays a b = importDefault "date-fns/subDays"
-    let getDay a = importDefault "date-fns/getDay"
-    let getISODay a = importDefault "date-fns/getISODay"
-    let isFriday a = importDefault "date-fns/isFriday"
-    let isMonday a = importDefault "date-fns/isMonday"
-    let isSaturday a = importDefault "date-fns/isSaturday"
-    let isSunday a = importDefault "date-fns/isSunday"
-    let isThursday a = importDefault "date-fns/isThursday"
-    let isTuesday a = importDefault "date-fns/isTuesday"
-    let isWednesday a = importDefault "date-fns/isWednesday"
-    let isWeekend a = importDefault "date-fns/isWeekend"
-    let addWeeks x y = importDefault "date-fns/addWeeks"
-    let differenceInCalendarWeeks x y = importDefault "date-fns/differenceInCalendarWeeks"
-    let differenceInWeeks x y = importDefault "date-fns/differenceInWeeks"
-    let endOfWeek x = importDefault "date-fns/endOfWeek"
-    let isSameWeek x y = importDefault "date-fns/isSameWeek"
-    let isThisWeek x = importDefault "date-fns/isThisWeek"
-    let lastDayOfWeek x = importDefault "date-fns/lastDayOfWeek"
-    let startOfWeek x = importDefault "date-fns/startOfWeek"
-    let subWeeks x y = importDefault "date-fns/subWeeks"
-    let differenceInCalendarISOWeeks x y = importDefault "date-fns/differenceInCalendarISOWeeks"
-    let endOfIsoWeek x = importDefault "date-fns/endOfISOWeek"
-    let isSameIsoWeek x y = importDefault "date-fns/isSameISOWeek"
-    let isThisIsoWeek x = importDefault "date-fns/isThisISOWeek"
-    let getISOWeek x = importDefault "date-fns/getISOWeek"
-    let lastDayOfIsoWeek x = importDefault "date-fns/lastDayOfISOWeek"
-    let startOfIsoWeek x = importDefault "date-fns/startOfISOWeek"
-    let setIsoWeek x y = importDefault "date-fns/setISOWeek"
-    let addMonths x y = importDefault "date-fns/addMonths"
-    let differenceInCalendarMonths x y = importDefault "date-fns/differenceInCalendarMonths"
-    let differenceInMonths x y = importDefault "date-fns/differenceInMonths"
-    let endOfMonth x = importDefault "date-fns/endOfMonth"
-    let getDaysInMonth x = importDefault "date-fns/getDaysInMonth"
-    let getMonth x = importDefault "date-fns/getMonth"
-    let isFirstDayOfMonth x = importDefault "date-fns/isFirstDayOfMonth"
-    let isLastDayOfMonth x = importDefault "date-fns/isLastDayOfMonth"
-    let isSameMonth x y = importDefault "date-fns/isSameMonth"
-    let isThisMonth x = importDefault "date-fns/isThisMonth"
-    let setMonth x y = importDefault "date-fns/setMonth"
-    let startOfMonth x = importDefault "date-fns/startOfMonth"
-    let subMonths x y = importDefault "date-fns/subMonths"
-    let addQuarters x y = importDefault "date-fns/addQuarters"
-    let differenceInCalendarQuarters x y = importDefault "date-fns/differenceInCalendarQuarters"
-    let differenceInQuarters x y = importDefault "date-fns/differenceInQuarters"
-    let endOfQuarter x = importDefault "date-fns/endOfQuarter"
-    let getQuarter x = importDefault "date-fns/getQuarter"
-    let isSameQuarter x y = importDefault "date-fns/isSameQuarter"
-    let isThisQuarter x = importDefault "date-fns/isThisQuarter"
-    let setQuarter x y = importDefault "date-fns/setQuarter"
-    let lastDayOfQuarter x = importDefault "date-fns/lastDayOfQuarter"
-    let startOfQuarter x = importDefault "date-fns/startOfQuarter"
-    let subQuarters x y = importDefault "date-fns/subQuarters"
-    let addYears x y = importDefault "date-fns/addYears"
-    let subYears x y = importDefault "date-fns/subYears"
-    let differenceInCalendarYears x y = importDefault "date-fns/differenceInCalendarYears"
-    let differenceInYears x y = importDefault "date-fns/differenceInYears"
-    let endOfYear x = importDefault "date-fns/endOfYear"
-    let daysInYear x = importDefault "date-fns/getDaysInYear"
-    let isLeapYear x = importDefault "date-fns/isLeapYear"
-    let isSameYear x y = importDefault "date-fns/isSameYear"
-    let isThisYear x = importDefault "date-fns/isThisYear"
-    let lastDayOfYear x = importDefault "date-fns/lastDayOfYear"
-    let startOfYear x = importDefault "date-fns/startOfYear"
+        jsNative
+    [<Import("isWithinInterval", "date-fns")>]
+    let isWithinInterval (d1: obj) (d2: Interval) = jsNative
+    [<Import("isWithinInterval", "date-fns")>]
+    let getTime (d: obj) = jsNative
+    [<Import("addMilliseconds", "date-fns")>]
+    let addMilliseconds (d: obj) (a: obj) = jsNative
+    [<Import("differenceInMilliseconds", "date-fns")>]
+    let differenceInMilliseconds (a: obj) (b: obj) = jsNative
+    [<Import("getMilliseconds", "date-fns")>]
+    let getMilliseconds (a: obj) = jsNative
+    [<Import("setMilliseconds", "date-fns")>]
+    let setMilliseconds (a: obj) (b: obj) = jsNative
+    [<Import("subMilliseconds", "date-fns")>]
+    let subMilliseconds (a: obj) (b: obj) = jsNative
+    [<Import("addSeconds", "date-fns")>]
+    let addSeconds a b = jsNative
+    [<Import("differenceInSeconds", "date-fns")>]
+    let differenceInSeconds a b = jsNative
+    [<Import("endOfSecond", "date-fns")>]
+    let endOfSecond a = jsNative
+    [<Import("getSeconds", "date-fns")>]
+    let getSeconds a = jsNative
+    [<Import("isSameSecond", "date-fns")>]
+    let isSameSecond a b = jsNative
+    [<Import("isThisSecond", "date-fns")>]
+    let isThisSecond a = jsNative
+    [<Import("setSeconds", "date-fns")>]
+    let setSeconds a b = jsNative
+    [<Import("startOfSecond", "date-fns")>]
+    let startOfSecond a = jsNative
+    [<Import("closessubSecondstIndexTo", "date-fns")>]
+    let subSeconds a b = jsNative
+    [<Import("addMinutes", "date-fns")>]
+    let addMinutes a b = jsNative
+    [<Import("differenceInMinutes", "date-fns")>]
+    let differenceInMinutes a b = jsNative
+    [<Import("endOfMinute", "date-fns")>]
+    let endOfMinute a = jsNative
+    [<Import("getMinutes", "date-fns")>]
+    let getMinutes a = jsNative
+    [<Import("isSameMinute", "date-fns")>]
+    let isSameMinute a b = jsNative
+    [<Import("isThisMinute", "date-fns")>]
+    let isThisMinute a = jsNative
+    [<Import("setMinutes", "date-fns")>]
+    let setMinutes a b = jsNative
+    [<Import("startOfMinute", "date-fns")>]
+    let startOfMinute a = jsNative
+    [<Import("subMinutes", "date-fns")>]
+    let subMinutes a b = jsNative
+    [<Import("addHours", "date-fns")>]
+    let addHours a b = jsNative
+    [<Import("differenceInHours", "date-fns")>]
+    let differenceInHours a b = jsNative
+    [<Import("endOfHour", "date-fns")>]
+    let endOfHour a = jsNative
+    [<Import("getHours", "date-fns")>]
+    let getHours a = jsNative
+    [<Import("isSameHour", "date-fns")>]
+    let isSameHour a b = jsNative
+    [<Import("isThisHour", "date-fns")>]
+    let isThisHour a = jsNative
+    [<Import("setHours", "date-fns")>]
+    let setHours a b = jsNative
+    [<Import("startOfHour", "date-fns")>]
+    let startOfHour a = jsNative
+    [<Import("subHours", "date-fns")>]
+    let subHours a b = jsNative
+    [<Import("addDays", "date-fns")>]
+    let addDays a b = jsNative
+    [<Import("differenceInCalendarDays", "date-fns")>]
+    let differenceInCalendarDays a b = jsNative
+    [<Import("differenceInDays", "date-fns")>]
+    let differenceInDays a b = jsNative
+    [<Import("eachDayOfInterval", "date-fns")>]
+    let eachDayOfInterval (a: Interval) = jsNative
+    [<Import("endOfDay", "date-fns")>]
+    let endOfDay a = jsNative
+    [<Import("endOfToday", "date-fns")>]
+    let endOfToday(): System.DateTime = jsNative
+    [<Import("endOfTomorrow", "date-fns")>]
+    let endOfTomorrow(): System.DateTime = jsNative
+    [<Import("endOfYesterday", "date-fns")>]
+    let endOfYesterday(): System.DateTime = jsNative
+    [<Import("getDate", "date-fns")>]
+    let getDate a = jsNative
+    [<Import("getDayOfYear", "date-fns")>]
+    let getDayOfYear a = jsNative
+    [<Import("isSameDay", "date-fns")>]
+    let isSameDay a b = jsNative
+    [<Import("isToday", "date-fns")>]
+    let isToday (a: obj) = jsNative
+    [<Import("isTomorrow", "date-fns")>]
+    let isTomorrow a = jsNative
+    [<Import("isYesterday", "date-fns")>]
+    let isYesterday a = jsNative
+    [<Import("setDate", "date-fns")>]
+    let setDate a b = jsNative
+    [<Import("setDayOfYear", "date-fns")>]
+    let setDayOfyear a b = jsNative
+    [<Import("startOfDay", "date-fns")>]
+    let startOfDay a = jsNative
+    [<Import("startOfToday", "date-fns")>]
+    let startOfToday(): System.DateTime = jsNative
+    [<Import("startOfTomorrow", "date-fns")>]
+    let startOfTomorrow(): System.DateTime = jsNative
+    [<Import("startOfYesterday", "date-fns")>]
+    let startOfYesterday(): System.DateTime = jsNative
+    [<Import("subDays", "date-fns")>]
+    let subDays a b = jsNative
+    [<Import("getDay", "date-fns")>]
+    let getDay a = jsNative
+    [<Import("getISODay", "date-fns")>]
+    let getISODay a = jsNative
+    [<Import("isFriday", "date-fns")>]
+    let isFriday a = jsNative
+    [<Import("isMonday", "date-fns")>]
+    let isMonday a = jsNative
+    [<Import("isSaturday", "date-fns")>]
+    let isSaturday a = jsNative
+    [<Import("isSunday", "date-fns")>]
+    let isSunday a = jsNative
+    [<Import("isThursday", "date-fns")>]
+    let isThursday a = jsNative
+    [<Import("isTuesday", "date-fns")>]
+    let isTuesday a = jsNative
+    [<Import("isWednesday", "date-fns")>]
+    let isWednesday a = jsNative
+    [<Import("isWeekend", "date-fns")>]
+    let isWeekend a = jsNative
+    [<Import("addWeeks", "date-fns")>]
+    let addWeeks x y = jsNative
+    [<Import("differenceInCalendarWeeks", "date-fns")>]
+    let differenceInCalendarWeeks x y = jsNative
+    [<Import("differenceInWeeks", "date-fns")>]
+    let differenceInWeeks x y = jsNative
+    [<Import("endOfWeek", "date-fns")>]
+    let endOfWeek x = jsNative
+    [<Import("isSameWeek", "date-fns")>]
+    let isSameWeek x y = jsNative
+    [<Import("isThisWeek", "date-fns")>]
+    let isThisWeek x = jsNative
+    [<Import("lastDayOfWeek", "date-fns")>]
+    let lastDayOfWeek x = jsNative
+    [<Import("startOfWeek", "date-fns")>]
+    let startOfWeek x = jsNative
+    [<Import("startOfWeek", "date-fns")>]
+    let startOfWeekWithOptions (x: obj) (y: obj) = jsNative
+    [<Import("subWeeks", "date-fns")>]
+    let subWeeks x y = jsNative
+    [<Import("differenceInCalendarISOWeeks", "date-fns")>]
+    let differenceInCalendarISOWeeks x y = jsNative
+    [<Import("endOfISOWeek", "date-fns")>]
+    let endOfIsoWeek x = jsNative
+    [<Import("isSameISOWeek", "date-fns")>]
+    let isSameIsoWeek x y = jsNative
+    [<Import("isThisISOWeek", "date-fns")>]
+    let isThisIsoWeek x = jsNative
+    [<Import("getISOWeek", "date-fns")>]
+    let getISOWeek x = jsNative
+    [<Import("lastDayOfISOWeek", "date-fns")>]
+    let lastDayOfIsoWeek x = jsNative
+    [<Import("startOfISOWeek", "date-fns")>]
+    let startOfIsoWeek x = jsNative
+    [<Import("setISOWeek", "date-fns")>]
+    let setIsoWeek x y = jsNative
+    [<Import("addMonths", "date-fns")>]
+    let addMonths x y = jsNative
+    [<Import("differenceInCalendarMonths", "date-fns")>]
+    let differenceInCalendarMonths x y = jsNative
+    [<Import("differenceInMonths", "date-fns")>]
+    let differenceInMonths x y = jsNative
+    [<Import("endOfMonth", "date-fns")>]
+    let endOfMonth x = jsNative
+    [<Import("getDaysInMonth", "date-fns")>]
+    let getDaysInMonth x = jsNative
+    [<Import("closestIndexTo", "date-fns")>]
+    let getMonth x = jsNative
+    [<Import("isFirstDayOfMonth", "date-fns")>]
+    let isFirstDayOfMonth x = jsNative
+    [<Import("isLastDayOfMonth", "date-fns")>]
+    let isLastDayOfMonth x = jsNative
+    [<Import("isSameMonth", "date-fns")>]
+    let isSameMonth x y = jsNative
+    [<Import("isThisMonth", "date-fns")>]
+    let isThisMonth x = jsNative
+    [<Import("setMonth", "date-fns")>]
+    let setMonth x y = jsNative
+    [<Import("startOfMonth", "date-fns")>]
+    let startOfMonth x = jsNative
+    [<Import("subMonths", "date-fns")>]
+    let subMonths x y = jsNative
+    [<Import("addQuarters", "date-fns")>]
+    let addQuarters x y = jsNative
+    [<Import("differenceInCalendarQuarters", "date-fns")>]
+    let differenceInCalendarQuarters x y = jsNative
+    [<Import("differenceInQuarters", "date-fns")>]
+    let differenceInQuarters x y = jsNative
+    [<Import("endOfQuarter", "date-fns")>]
+    let endOfQuarter x = jsNative
+    [<Import("getQuarter", "date-fns")>]
+    let getQuarter x = jsNative
+    [<Import("isSameQuarter", "date-fns")>]
+    let isSameQuarter x y = jsNative
+    [<Import("isThisQuarter", "date-fns")>]
+    let isThisQuarter x = jsNative
+    [<Import("setQuarter", "date-fns")>]
+    let setQuarter x y = jsNative
+    [<Import("lastDayOfQuarter", "date-fns")>]
+    let lastDayOfQuarter x = jsNative
+    [<Import("startOfQuarter", "date-fns")>]
+    let startOfQuarter x = jsNative
+    [<Import("subQuarters", "date-fns")>]
+    let subQuarters x y = jsNative
+    [<Import("addYears", "date-fns")>]
+    let addYears x y = jsNative
+    [<Import("subYears", "date-fns")>]
+    let subYears x y = jsNative
+    [<Import("differenceInCalendarYears", "date-fns")>]
+    let differenceInCalendarYears x y = jsNative
+    [<Import("differenceInYears", "date-fns")>]
+    let differenceInYears x y = jsNative
+    [<Import("endOfYear", "date-fns")>]
+    let endOfYear x = jsNative
+    [<Import("getDaysInYear", "date-fns")>]
+    let daysInYear x = jsNative
+    [<Import("isLeapYear", "date-fns")>]
+    let isLeapYear x = jsNative
+    [<Import("isSameYear", "date-fns")>]
+    let isSameYear x y = jsNative
+    [<Import("isThisYear", "date-fns")>]
+    let isThisYear x = jsNative
+    [<Import("lastDayOfYear", "date-fns")>]
+    let lastDayOfYear x = jsNative
+    [<Import("startOfYear", "date-fns")>]
+    let startOfYear x = jsNative
