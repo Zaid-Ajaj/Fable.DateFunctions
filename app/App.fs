@@ -50,15 +50,16 @@ let tomorrow = now.AddDays(1)"""
         highlight (sprintf "now.FormatDistance(tomorrow) // => %A" (now.FormatDistance(tomorrow)))
         highlight (sprintf "now.IsTomorrow() // => %A" (now.IsTomorrow()))
         highlight (sprintf "now.IsInTheSameDayAs(tomorrow) // => %A" (now.IsInTheSameDayAs(tomorrow)))
-        highlight
-            (sprintf "tomorrow.IsInTheSameDayAs(tomorrow) // => %A" (tomorrow.IsInTheSameDayAs(tomorrow)))
+        highlight (sprintf "tomorrow.IsInTheSameDayAs(tomorrow) // => %A" (tomorrow.IsInTheSameDayAs(tomorrow)))
         highlight (sprintf "tomorrow.IsInTheFuture() // => %A" (tomorrow.IsInTheFuture()))
         highlight (sprintf "yesterday.IsInTheFuture() // => %A" (yesterday.IsInTheFuture()))
         highlight (sprintf "yesterday.IsInThePast() // => %A" (yesterday.IsInThePast()))
         highlight (sprintf "yesterday.EndOfDay() // => %A" (yesterday.EndOfDay()))
         highlight (sprintf "now.StartOfDay() // => %A" (now.StartOfDay()))
-        highlight
-            (sprintf "now.IsInSameMinuteAs(now.AddSeconds(5.0)) // => %A" (now.IsInSameMinuteAs(now.AddSeconds(5.0))))
+        highlight (sprintf "now.StartOfWeek() // => %A" (now.StartOfWeek()))
+        highlight (sprintf "now.StartOfWeek(locale=DateTime.Locales.Dutch) // => %A" (now.StartOfWeek(locale=DateTime.Locales.Dutch)))
+
+        highlight (sprintf "now.IsInSameMinuteAs(now.AddSeconds(5.0)) // => %A" (now.IsInSameMinuteAs(now.AddSeconds(5.0))))
         highlight (sprintf "now.IsBetween(yesterday, tomorrow) ==> %A" (now.IsBetween(yesterday, tomorrow)))
         highlight (sprintf "now.SubtractDays(1).IsInThePast()  ==> %A" (now.SubtractDays(1).IsInThePast()))
         highlight (sprintf "now.AddQuarters(2)  ==> %A" (now.AddQuarters(2)))
