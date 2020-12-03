@@ -12,7 +12,7 @@ console.log("Bundling for " + (isProduction ? "production" : "development") + ".
 module.exports = {
   mode: isProduction ? "production" : "development",
   devtool: "source-map",
-  entry: resolve('./app/App.fsproj'),
+  entry: resolve('./app/.fable-build/Program.js'),
   output: {
     filename: 'bundle.js',
     path: resolve('./public'),

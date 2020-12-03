@@ -199,3 +199,5 @@ bundle.js.map
 public/*
 !public/index.html
 .ionide
+/.idea/
+.fable-build

@@ -1,57 +1,84 @@
-#r "packages/build/FAKE/tools/FakeLib.dll"
+#r "paket: groupref Build //"
+#load ".fake/build.fsx/intellisense.fsx"
 
 open System
-open Fake
+open System.IO
+open Fake.Core
+open Fake.DotNet
+open Fake.IO
+open Fake.IO.FileSystemOperators
+open Fake.Core.TargetOperators
 
-let run fileName args workingDir =
-    printfn "CWD: %s" workingDir
-    let fileName, args =
-        if EnvironmentHelper.isUnix
-        then fileName, args else "cmd", ("/C " + fileName + " " + args)
-    let ok = execProcess (fun info ->
-            info.FileName <- fileName
-            info.WorkingDirectory <- workingDir
-            info.Arguments <- args) TimeSpan.MaxValue
-    if not ok then failwith (sprintf "'%s> %s %s' task failed" workingDir fileName args)
+module Tools =
+    let private findTool tool winTool =
+        let tool = if Environment.isUnix then tool else winTool
+        match ProcessUtils.tryFindFileOnPath tool with
+        | Some t -> t
+        | _ ->
+            let errorMsg =
+                tool + " was not found in path. " +
+                "Please install it and make sure it's available from your path. "
+            failwith errorMsg
 
-let dotnet = "dotnet"
-let npm = "npm"
-let projects =  [ "src"; "app" ]
+    let private runTool (cmd:string) args workingDir =
+        let arguments = args |> String.split ' ' |> Arguments.OfArgs
+        Command.RawCommand (cmd, arguments)
+        |> CreateProcess.fromCommand
+        |> CreateProcess.withWorkingDirectory workingDir
+        |> CreateProcess.ensureExitCode
+        |> Proc.run
+        |> ignore
 
-Target "Clean" <| fun _ ->
+    let dotnet cmd workingDir =
+        let result =
+            DotNet.exec (DotNet.Options.withWorkingDirectory workingDir) cmd ""
+        if result.ExitCode <> 0 then failwithf "'dotnet %s' failed in %s" cmd workingDir
+
+    let femto args = args |> sprintf "femto %s" |> dotnet
+    let node = runTool (findTool "node" "node.exe")
+    let yarn = runTool (findTool "yarn" "yarn.cmd")
+
+let libraryPath = "src"
+let appPath = "app"
+let projects =  [ libraryPath; appPath ]
+let appBuildPath = ".fable-build"
+
+Target.create "Clean" <| fun _ ->
     projects 
     |> List.collect (fun proj -> [ proj </> "bin"; proj </> "obj" ])
-    |> List.iter CleanDir
+    |> Shell.cleanDirs 
 
     [ "public" </> "bundle.js"
       "public" </> "bundle.js.map" ]
-    |> List.iter DeleteFile
+    |> List.iter File.delete
 
-Target "DotnetRestore" <| fun _ ->
+Target.create "DotnetRestore" <| fun _ ->
     projects
-    |> List.iter (run dotnet "restore --no-cache")
+    |> List.iter (Tools.dotnet "restore --no-cache")
 
-let publish projectPath = fun () ->
-    run dotnet "pack -c Release" projectPath
+let publish proj =
+    Tools.dotnet "restore --no-cache" proj
+    Tools.dotnet "pack -c Release" proj
     let nugetKey =
-        match environVarOrNone "NUGET_KEY" with
+        match Environment.environVarOrNone "NUGET_KEY" with
         | Some nugetKey -> nugetKey
         | None -> failwith "The Nuget API key must be set in a NUGET_KEY environmental variable"
-    let nupkg = System.IO.Directory.GetFiles(projectPath </> "bin" </> "Release") |> Seq.head
-    tracefn "Found nuget %s" (System.IO.Path.GetFullPath(nupkg))
-    let pushCmd = sprintf "nuget push %s -s nuget.org -k %s" (System.IO.Path.GetFullPath(nupkg)) nugetKey
-    run dotnet pushCmd projectPath
+    let nupkg =
+        Directory.GetFiles(proj </> "bin" </> "Release")
+        |> Seq.head
+        |> Path.GetFullPath
+    Tools.dotnet (sprintf "nuget push %s -s nuget.org -k %s" nupkg nugetKey) proj
 
-Target "PublishNuget" (publish "src")
+Target.create "PublishNuget" (fun _ -> publish libraryPath)
 
-Target "YarnInstall" <| fun _ ->
-    run "yarn" "install" "."
+Target.create "YarnInstall" <| fun _ ->
+    Tools.yarn "install" "."
 
-Target "Watch" <| fun () ->
-  run npm "start" "."
+Target.create "Watch" <| fun _ ->
+    Tools.dotnet (sprintf "fable watch --outDir %s --run webpack-dev-server" appBuildPath) appPath
 
-Target "Build" <| fun () -> 
-  run npm "run build" "."
+Target.create "Build" <| fun _ -> 
+    Tools.yarn "run build" "."
 
 "Clean" 
   ==> "DotnetRestore"
@@ -67,4 +94,4 @@ Target "Build" <| fun () ->
   ==> "DotnetRestore"
   ==> "PublishNuget"
 
-RunTargetOrDefault "Build"
+Target.runOrDefaultWithArguments "Build"

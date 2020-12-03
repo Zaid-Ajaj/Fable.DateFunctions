@@ -11,6 +11,9 @@ nuget Fable.Elmish.HMR
 nuget Fable.Elmish.Debugger
 
 group Build
-    framework >= net45
     source https://api.nuget.org/v3/index.json
-    nuget FAKE ~> 4.64.6
+    storage: none
+    nuget FSharp.Core
+    nuget Fake.DotNet.Cli
+    nuget Fake.Core.Target
+    nuget Fake.IO.FileSystem
