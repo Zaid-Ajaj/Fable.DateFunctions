@@ -22,7 +22,7 @@ module WeekHelpers =
         member inline date.LastDayOfWeek(): DateTime = ExternalDateFns.lastDayOfWeek date
         /// Returns the DateTime of the first day of the week of the current instance of DateTime
         member inline date.StartOfWeek(): DateTime = ExternalDateFns.startOfWeek date
-        /// Returns the DateTime of the first day of the week of the current instance of DateTime
+        /// Returns the DateTime of the first day of the week of the current instance of DateTime based on the input locale
         member inline date.StartOfWeek(locale: ILocale): DateTime =
             ExternalDateFns.startOfWeekWithOptions date (createObj [
                 "options" ==> createObj [
@@ -30,16 +30,28 @@ module WeekHelpers =
                 ]
             ])
 
+        /// Returns the DateTime of the first day of the week of the current instance of DateTime
+        member inline date.StartOfWeek(weekStartsOn: Day): DateTime =
+            ExternalDateFns.startOfWeekWithOptions date (createObj [
+                "options" ==> createObj [
+                    "weekStartsOn" ==> weekStartsOn
+                ]
+            ])
+
         /// Same as `{DateTime}.AddWeeks(-1).StartOfWeek().StartOfDay()`
         member inline date.StartOfPreviousWeek() : DateTime = date.AddWeeks(-1).StartOfWeek().StartOfDay()
         /// Same as `{DateTime}.AddWeeks(-1).StartOfWeek().StartOfDay()`
         member inline date.StartOfPreviousWeek(locale: ILocale) : DateTime = date.AddWeeks(-1).StartOfWeek(locale).StartOfDay()
+        /// Same as `{DateTime}.AddWeeks(-1).StartOfWeek().StartOfDay()`
+        member inline date.StartOfPreviousWeek(weekStartsOn: Day) : DateTime = date.AddWeeks(-1).StartOfWeek(weekStartsOn).StartOfDay()
         /// Same as `{DateTime}.AddWeeks(-1).EndOfWeek().EndOfDay()`
         member inline date.EndOfPreviousWeek() : DateTime = date.AddWeeks(-1).EndOfWeek().EndOfDay()
         /// Same as `{DateTime}.AddWeeks(1).StartOfWeek().StartOfDay()`
         member inline date.StartOfNextWeek() : DateTime = date.AddWeeks(1).StartOfWeek().StartOfDay()
-        /// Same as `{DateTime}.AddWeeks(1).StartOfWeek().StartOfDay()`
+        /// Same as `{DateTime}.AddWeeks(1).StartOfWeek(locale).StartOfDay()`
         member inline date.StartOfNextWeek(locale: ILocale) : DateTime = date.AddWeeks(1).StartOfWeek(locale).StartOfDay()
+        /// Same as `{DateTime}.AddWeeks(1).StartOfWeek(locale).StartOfDay()`
+        member inline date.StartOfNextWeek(weekStartsOn: Day) : DateTime = date.AddWeeks(1).StartOfWeek(weekStartsOn).StartOfDay()
         /// Same as `{DateTime}.AddWeeks(1).EndOfWeek().EndOfDay()`
         member inline date.EndOfNextWeek() : DateTime = date.AddWeeks(1).EndOfWeek().EndOfDay()
         member inline date.SubtractWeeks(n: int): DateTime = ExternalDateFns.subWeeks date n
@@ -61,23 +73,36 @@ module WeekHelpersDateTimeOffset =
         member inline date.LastDayOfWeek(): DateTimeOffset = DateTimeOffset(ExternalDateFns.lastDayOfWeek date)
         /// Returns the DateTime of the first day of the week of the current instance of DateTime
         member inline date.StartOfWeek(): DateTimeOffset = DateTimeOffset(ExternalDateFns.startOfWeek date)
-        /// Returns the DateTime of the first day of the week of the current instance of DateTime
+        /// Returns the DateTime of the first day of the week of the current instance of DateTime based on a locale
         member inline date.StartOfWeek(locale: ILocale): DateTimeOffset =
             DateTimeOffset(ExternalDateFns.startOfWeekWithOptions date (createObj [
                 "options" ==> createObj [
                     "locale" ==> locale
                 ]
             ]))
+
+        /// Returns the DateTime of the first day of the week of the current instance of DateTime based on a locale
+        member inline date.StartOfWeek(weekStartsOn: Day): DateTimeOffset =
+            DateTimeOffset(ExternalDateFns.startOfWeekWithOptions date (createObj [
+                "options" ==> createObj [
+                    "weekStartsOn" ==> weekStartsOn
+                ]
+            ]))
+
         /// Same as `{DateTime}.AddWeeks(-1).StartOfWeek().StartOfDay()`
         member inline date.StartOfPreviousWeek() : DateTimeOffset = date.AddWeeks(-1).StartOfWeek().StartOfDay()
-        /// Same as `{DateTime}.AddWeeks(-1).StartOfWeek().StartOfDay()`
+        /// Same as `{DateTime}.AddWeeks(-1).StartOfWeek(locale).StartOfDay()`
         member inline date.StartOfPreviousWeek(locale: ILocale) : DateTimeOffset = date.AddWeeks(-1).StartOfWeek(locale).StartOfDay()
+                /// Same as `{DateTime}.AddWeeks(-1).StartOfWeek(weekStartsOn).StartOfDay()`
+        member inline date.StartOfPreviousWeek(weekStartsOn: Day) : DateTimeOffset = date.AddWeeks(-1).StartOfWeek(weekStartsOn).StartOfDay()
         /// Same as `{DateTime}.AddWeeks(-1).EndOfWeek().EndOfDay()`
         member inline date.EndOfPreviousWeek() : DateTimeOffset = date.AddWeeks(-1).EndOfWeek().EndOfDay()
         /// Same as `{DateTime}.AddWeeks(1).StartOfWeek().StartOfDay()`
         member inline date.StartOfNextWeek() : DateTimeOffset = date.AddWeeks(1).StartOfWeek().StartOfDay()
-        /// Same as `{DateTime}.AddWeeks(1).StartOfWeek().StartOfDay()`
+        /// Same as `{DateTime}.AddWeeks(1).StartOfWeek(locale).StartOfDay()`
         member inline date.StartOfNextWeek(locale: ILocale) : DateTimeOffset = date.AddWeeks(1).StartOfWeek(locale).StartOfDay()
+        /// Same as `{DateTime}.AddWeeks(1).StartOfWeek(weekStartsOn).StartOfDay()`
+        member inline date.StartOfNextWeek(weekStartsOn: Day) : DateTimeOffset = date.AddWeeks(1).StartOfWeek(weekStartsOn).StartOfDay()
         /// Same as `{DateTime}.AddWeeks(1).EndOfWeek().EndOfDay()`
         member inline date.EndOfNextWeek() : DateTimeOffset = date.AddWeeks(1).EndOfWeek().EndOfDay()
         member inline date.SubtractWeeks(n: int): DateTimeOffset = DateTimeOffset(ExternalDateFns.subWeeks date n)

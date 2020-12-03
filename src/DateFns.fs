@@ -37,6 +37,16 @@ type Months =
     | November = 10
     | December = 11
 
+[<RequireQualifiedAccess>]
+type Day =
+    | Sunday = 0
+    | Monday = 1
+    | Tuesday = 2
+    | Wednesday = 3
+    | Thursday = 4
+    | Friday = 5
+    | Saturday = 6
+
 type IFormatDistanceOptions =
     /// distances less than a minute are more detailed
     abstract includeSeconds: bool with get, set
