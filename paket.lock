@@ -1,11 +1,12 @@
 STORAGE: NONE
+LOWEST_MATCHING: TRUE
 NUGET
   remote: https://api.nuget.org/v3/index.json
     Elmish.Toastr (1.0)
       Fable.Core (>= 2.0) - restriction: >= netstandard2.0
       Fable.Elmish (>= 2.0) - restriction: >= netstandard2.0
       FSharp.Core (>= 4.5.2) - restriction: >= netstandard2.0
-    Fable.AST (3.0.0-nagareyama-rc-001) - restriction: >= netstandard2.0
+    Fable.AST (3.0) - restriction: >= netstandard2.0
     Fable.Browser.Blob (1.1) - restriction: >= netstandard2.0
       Fable.Core (>= 3.0) - restriction: >= netstandard2.0
       FSharp.Core (>= 4.6.2) - restriction: >= netstandard2.0
@@ -55,15 +56,15 @@ NUGET
       Fable.Browser.Dom (>= 2.0.1) - restriction: >= netstandard2.0
       Fable.Core (>= 3.1.5) - restriction: >= netstandard2.0
       FSharp.Core (>= 4.7.2) - restriction: >= netstandard2.0
-    Feliz (1.22)
+    Feliz (1.29)
       Fable.Core (>= 3.1.5) - restriction: >= netstandard2.0
       Fable.React (>= 7.0.1) - restriction: >= netstandard2.0
-      Feliz.CompilerPlugins (>= 0.9) - restriction: >= netstandard2.0
+      Feliz.CompilerPlugins (>= 1.2) - restriction: >= netstandard2.0
       FSharp.Core (>= 4.7.2) - restriction: >= netstandard2.0
-    Feliz.CompilerPlugins (0.9) - restriction: >= netstandard2.0
-      Fable.AST (>= 3.0.0-nagareyama-rc-001) - restriction: >= netstandard2.0
-      FSharp.Core (>= 4.7.1) - restriction: >= netstandard2.0
-    FSharp.Core (5.0)
+    Feliz.CompilerPlugins (1.2) - restriction: >= netstandard2.0
+      Fable.AST (>= 3.0) - restriction: >= netstandard2.0
+      FSharp.Core (>= 4.7.2) - restriction: >= netstandard2.0
+    FSharp.Core (4.7.2)
 
 GROUP Build
 RESTRICTION: >= net45
