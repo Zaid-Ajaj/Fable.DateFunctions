@@ -7,10 +7,10 @@
     <PackageIconUrl></PackageIconUrl>
     <PackageTags>fsharp;fable;date;dates;datetime;date-fns</PackageTags>
     <Authors>Zaid Ajaj</Authors>
-    <Version>3.6.0</Version>
+    <Version>3.7.0</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageReleaseNotes>Relax FSharp.Core dependency</PackageReleaseNotes>
+    <PackageReleaseNotes>Exclude build artifacts from the generated nuget</PackageReleaseNotes>
   </PropertyGroup>
   <PropertyGroup>
     <NpmDependencies>
@@ -36,7 +36,7 @@
     <Compile Include="Locales.fs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="*.fsproj; *.fs; *.js" PackagePath="fable\" />
+    <Content Include="*.fsproj; *.fs; *.js" Exclude="**\*.fs.js" PackagePath="fable\" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
