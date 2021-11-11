@@ -6,7 +6,7 @@ open System
 [<Erase>]
 type DateFnLocales() =
     [<Import("az", "date-fns/locale")>]
-    member inline this.Azerbaijani = jsNative
+    member inline this.Azerbaijani : ILocale = jsNative
     [<Import("ru", "date-fns/locale")>]
     member inline this.Russian : ILocale = jsNative
     [<Import("fr", "date-fns/locale")>]
@@ -83,7 +83,7 @@ type DateFnLocales() =
     [<Import("faIR", "date-fns/locale")>]
     member inline this.Persian : ILocale = jsNative
     [<Import("sl", "date-fns/locale")>]
-    member inline this.Slovenian = jsNative
+    member inline this.Slovenian : ILocale = jsNative
 
 [<AutoOpen>]
 module LocalesHelper =
