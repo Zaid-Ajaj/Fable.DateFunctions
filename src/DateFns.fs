@@ -359,3 +359,23 @@ module ExternalDateFns =
     let lastDayOfYear x = jsNative
     [<Import("startOfYear", "date-fns")>]
     let startOfYear x = jsNative
+    [<Import("addISOWeekYears", "date-fns")>]
+    let addISOWeekYears x y = jsNative
+    [<Import("differenceInCalendarISOWeekYears", "date-fns")>]
+    let differenceInCalendarISOWeekYears x y = jsNative
+    [<Import("differenceInISOWeekYears", "date-fns")>]
+    let differenceInISOWeekYears x y = jsNative
+    [<Import("endOfISOWeekYear", "date-fns")>]
+    let endOfISOWeekYear x = jsNative
+    [<Import("getISOWeekYear", "date-fns")>]
+    let getISOWeekYear x = jsNative
+    [<Import("isSameISOWeekYear", "date-fns")>]
+    let isSameISOWeekYear x y = jsNative
+    [<Import("lastDayOfISOWeekYear", "date-fns")>]
+    let lastDayOfISOWeekYear x = jsNative
+    [<Import("setISOWeekYear", "date-fns")>]
+    let setISOWeekYear x y = jsNative
+    [<Import("startOfISOWeekYear", "date-fns")>]
+    let startOfISOWeekYear x = jsNative
+    [<Import("subISOWeekYears", "date-fns")>]
+    let subISOWeekYears x y = jsNative

@@ -30,6 +30,7 @@
     <Compile Include="WeekdayHelpers.fs" />
     <Compile Include="WeekHelpers.fs" />
     <Compile Include="IsoWeeksHelper.fs" />
+    <Compile Include="IsoWeekNumberingYearHelpers.fs" />
     <Compile Include="MonthHelpers.fs" />
     <Compile Include="QuarterHelpers.fs" />
     <Compile Include="YearHelpers.fs" />
