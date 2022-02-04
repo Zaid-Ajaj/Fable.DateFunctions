@@ -7,10 +7,10 @@
     <PackageIconUrl></PackageIconUrl>
     <PackageTags>fsharp;fable;date;dates;datetime;date-fns</PackageTags>
     <Authors>Zaid Ajaj</Authors>
-    <Version>3.8.1</Version>
+    <Version>3.9.0</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageReleaseNotes>Add explicit ILocale type to imported locales</PackageReleaseNotes>
+    <PackageReleaseNotes>IsoWeekNumberingYearHelpers added</PackageReleaseNotes>
   </PropertyGroup>
   <PropertyGroup>
     <NpmDependencies>
