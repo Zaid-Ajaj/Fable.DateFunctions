@@ -84,6 +84,9 @@ type DateFnLocales() =
     member inline this.Persian : ILocale = jsNative
     [<Import("sl", "date-fns/locale")>]
     member inline this.Slovenian : ILocale = jsNative
+    [<Import("enGB", "date-fns/locale")>]
+    member inline this.EnglishGB : ILocale = jsNative
+    
 
 [<AutoOpen>]
 module LocalesHelper =
